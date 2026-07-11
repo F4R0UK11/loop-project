@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><title>Loop — Ask</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{
+"surface-container":"#f5eddc","surface-variant":"#eae2d1","surface-container-high":"#efe7d6",
+"on-secondary":"#ffffff","on-surface-variant":"#514a3e","surface-container-lowest":"#ffffff",
+"on-secondary-container":"#33493c","surface-container-low":"#fbf3e2","on-primary":"#ffffff",
+"on-background":"#1f1b11","surface":"#fff8ef","secondary-container":"#cfe9d7","outline-variant":"#c9c3b4",
+"secondary":"#3f6b4f","on-surface":"#1f1b11","outline":"#8a8271","primary":"#1d2b22",
+"background":"#fff8ef","primary-container":"#1d2b22","on-tertiary":"#ffffff",
+"terracotta":"#B5651D","terracotta-soft":"#F3E4D3","policy":"#2C5F8A","policy-soft":"#DCE9F3",
+"experience":"#B5651D","experience-soft":"#F3E4D3","soft-cream":"#FBF8F2"},
+borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem","2xl":"1rem",full:"9999px"},
+spacing:{base:"4px",md:"16px",sm:"12px",xl:"32px",xs:"8px",lg:"24px","margin-mobile":"20px"},
+fontFamily:{"label-md":["Work Sans"],"body-lg":["Work Sans"],"label-sm":["Work Sans"],
+"headline-lg":['"Source Serif 4"'],"headline-sm":['"Source Serif 4"'],"headline-md":['"Source Serif 4"'],"body-md":["Work Sans"]},
+fontSize:{"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"500"}],
+"body-lg":["17px",{lineHeight:"26px",fontWeight:"400"}],
+"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],
+"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],
+"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],
+"headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
+"body-md":["15px",{lineHeight:"22px",fontWeight:"400"}]}}}}
+</script>
+<style>
+.shadow-diffuse{box-shadow:0 4px 16px rgba(29,43,34,0.06)}
+.shadow-card{box-shadow:0 6px 20px rgba(29,43,34,0.08)}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400}
+.fill{font-variation-settings:'FILL' 1}
+.navbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;border-radius:12px;color:#514a3e;transition:.15s}
+.navbtn.active{background:#cfe9d7;color:#33493c;border-radius:9999px;padding:6px 16px}
+.navlbl{font-family:'Work Sans';font-size:11px;font-weight:600;letter-spacing:.05em;margin-top:2px}
+.scrollbar-hide::-webkit-scrollbar{display:none}.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}
+</style></head>
+<body class="bg-background text-on-background antialiased pt-16 pb-24 min-h-screen max-w-lg mx-auto relative">
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface/85 backdrop-blur-md max-w-lg mx-auto left-0 right-0">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-on-surface-variant">menu</span><span class="font-headline-md text-[20px] font-bold text-primary tracking-tight">Loop</span></div>
+<div class="w-8 h-8 rounded-full bg-secondary/30 flex items-center justify-center text-secondary font-headline-sm text-[14px]">A</div>
+</header>
+<main class="px-margin-mobile flex flex-col gap-xl mt-lg">
+
+<section class="flex flex-col gap-md">
+<h1 class="font-headline-lg text-headline-lg text-primary leading-tight">Ask AUI anything.<br/><span class="text-secondary">Get a verified answer.</span></h1>
+<p class="font-body-md text-body-md text-on-surface-variant -mt-1">Answers come from the handbook and real student experience — then a real senior confirms them.</p>
+<div class="relative">
+<textarea class="w-full bg-surface-container-lowest rounded-2xl border border-outline-variant/50 outline-none focus:ring-2 focus:ring-terracotta/40 focus:border-terracotta p-4 pb-14 font-body-lg text-body-lg text-on-background placeholder:text-outline resize-none shadow-diffuse" placeholder="e.g. Do I need advisor confirmation to un-drop a course?" rows="3"></textarea>
+<a href="verified.html" class="absolute bottom-3 right-3 bg-terracotta text-white px-5 py-2.5 rounded-full font-label-md text-label-md flex items-center gap-1.5 hover:opacity-90 transition-opacity shadow-sm"><span class="material-symbols-outlined text-[18px]">auto_awesome</span>Ask</a>
+</div>
+<div class="flex flex-wrap gap-xs">
+<span class="px-3.5 py-2 bg-surface-container-high text-primary rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-variant transition-colors">Registration</span>
+<span class="px-3.5 py-2 bg-surface-container-high text-primary rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-variant transition-colors">Housing</span>
+<span class="px-3.5 py-2 bg-surface-container-high text-primary rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-variant transition-colors">Exchange</span>
+<span class="px-3.5 py-2 bg-surface-container-high text-primary rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-variant transition-colors">Campus</span>
+</div>
+</section>
+
+<!-- WORTH KNOWING THIS WEEK — proactive rule surfacing.
+     Rationale: journey map Opportunity #2 ("surface unstated rules at the moment they become
+     relevant, not after") — grounded in Mehdi B.'s $200/week storage fine and Youssef's curfew
+     questioning, both rules discovered only after being broken.
+     Amershi G16: each card says what it costs to miss. Nielsen #2: organized by real student
+     moments, not database categories. -->
+<section class="flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary">Worth knowing this week</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Surfaced before it costs you</span>
+</div>
+<div class="flex gap-sm overflow-x-auto scrollbar-hide -mx-margin-mobile px-margin-mobile pb-1">
+<a href="verified.html" class="min-w-[240px] bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-terracotta"><span class="material-symbols-outlined text-[16px]">event_upcoming</span><span class="font-label-sm text-label-sm uppercase">Deadline · Fri, Jul 17</span></div>
+<p class="font-body-md text-body-md font-medium text-on-background leading-snug">Dorm storage closes before summer — items left past the date get fined weekly.</p>
+<div class="flex items-center gap-1 mt-auto"><span class="w-2 h-2 rounded-full bg-experience"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Learned the hard way · verified</span></div>
+</a>
+<a href="verified.html" class="min-w-[240px] bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-policy"><span class="material-symbols-outlined text-[16px]">gavel</span><span class="font-label-sm text-label-sm uppercase">Rule · new students</span></div>
+<p class="font-body-md text-body-md font-medium text-on-background leading-snug">Leaving campus after curfew needs a signed process first — not just walking out.</p>
+<div class="flex items-center gap-1 mt-auto"><span class="w-2 h-2 rounded-full bg-policy"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Official policy · verified</span></div>
+</a>
+<a href="verified.html" class="min-w-[240px] bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-terracotta"><span class="material-symbols-outlined text-[16px]">event_upcoming</span><span class="font-label-sm text-label-sm uppercase">Window · Jul 20–24</span></div>
+<p class="font-body-md text-body-md font-medium text-on-background leading-snug">Add/Drop opens Monday — un-dropping later needs advisor confirmation.</p>
+<div class="flex items-center gap-1 mt-auto"><span class="w-2 h-2 rounded-full bg-experience"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Lived + policy · verified</span></div>
+</a>
+</div>
+</section>
+
+<!-- ANSWERED FOR YOU — kept, now a fuller feed of recent verified answers -->
+<section class="flex flex-col gap-md">
+<h2 class="font-headline-sm text-headline-sm text-primary">Answered for you</h2>
+<div class="flex flex-col gap-sm">
+<a href="verified.html" class="bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex flex-col gap-sm hover:scale-[0.99] transition-transform">
+<div class="flex items-start justify-between gap-4"><h3 class="font-body-md text-body-md font-medium text-on-background">Do I need advisor confirmation to un-drop a course?</h3><span class="material-symbols-outlined text-outline-variant">chevron_right</span></div>
+<div class="flex items-center gap-3 mt-1"><div class="flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full"><span class="material-symbols-outlined text-[14px] fill">verified</span><span class="font-label-sm text-label-sm">Verified</span></div><div class="flex items-center gap-1 text-experience"><span class="w-2 h-2 rounded-full bg-experience"></span><span class="font-label-sm text-label-sm">Lived</span></div><div class="flex items-center gap-1 text-policy"><span class="w-2 h-2 rounded-full bg-policy"></span><span class="font-label-sm text-label-sm">Policy</span></div></div>
+</a>
+<a href="verified.html" class="bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex flex-col gap-sm hover:scale-[0.99] transition-transform">
+<div class="flex items-start justify-between gap-4"><h3 class="font-body-md text-body-md font-medium text-on-background">How do I apply for the exchange program in France?</h3><span class="material-symbols-outlined text-outline-variant">chevron_right</span></div>
+<div class="flex items-center gap-3 mt-1"><div class="flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full"><span class="material-symbols-outlined text-[14px] fill">verified</span><span class="font-label-sm text-label-sm">Verified</span></div><div class="flex items-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">group</span><span class="font-label-sm text-label-sm">5 answers</span></div></div>
+</a>
+<a href="verified.html" class="bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex flex-col gap-sm hover:scale-[0.99] transition-transform">
+<div class="flex items-start justify-between gap-4"><h3 class="font-body-md text-body-md font-medium text-on-background">What does the residency office actually ask for at renewal?</h3><span class="material-symbols-outlined text-outline-variant">chevron_right</span></div>
+<div class="flex items-center gap-3 mt-1"><div class="flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full"><span class="material-symbols-outlined text-[14px] fill">verified</span><span class="font-label-sm text-label-sm">Verified</span></div><div class="flex items-center gap-1 text-experience"><span class="w-2 h-2 rounded-full bg-experience"></span><span class="font-label-sm text-label-sm">Differs from the website</span></div></div>
+</a>
+</div>
+</section>
+
+<!-- LIVE IN YOUR SPACES — activity, so home feels alive and routes into the community layer.
+     Rationale: feedback #2 (home felt empty) + Hamza (mentor) interview: same questions
+     repeat every cohort — showing them moving keeps the "asked once, answered forever" thesis
+     visible. Amershi G15 is deliberately light here: activity, not engagement bait. -->
+<section class="flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary">Live in your Spaces</h2>
+<a href="spaces.html" class="font-label-md text-label-md text-secondary hover:opacity-80">All Spaces</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a href="space_thread.html" class="bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex items-start gap-sm hover:scale-[0.99] transition-transform">
+<span class="w-9 h-9 rounded-xl bg-policy-soft text-policy flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[18px]">flight_takeoff</span></span>
+<div class="flex-1 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Exchange &amp; Study Abroad</span>
+<p class="font-body-md text-body-md font-medium text-on-background leading-snug">Which documents did the exchange office actually check this year?</p>
+<span class="font-label-sm text-label-sm text-terracotta">AI drafted · awaiting a verified confirmation</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant mt-1">chevron_right</span>
+</a>
+<a href="space_thread.html" class="bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex items-start gap-sm hover:scale-[0.99] transition-transform">
+<span class="w-9 h-9 rounded-xl bg-secondary-container text-secondary flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[18px]">payments</span></span>
+<div class="flex-1 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Clubs &amp; Funding</span>
+<p class="font-body-md text-body-md font-medium text-on-background leading-snug">The funding request format that actually gets approved</p>
+<span class="font-label-sm text-label-sm text-secondary">Verified 3h ago · asked 11 times before</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant mt-1">chevron_right</span>
+</a>
+</div>
+</section>
+
+<!-- THE CORPUS LINE — durability made visible.
+     Rationale: the thesis (knowledge leaves at graduation) as a number the jury can see.
+     Competitor table: nothing else is both AUI-specific and survives cohorts. -->
+<section class="bg-primary rounded-2xl p-lg flex flex-col gap-sm shadow-card">
+<div class="flex items-center gap-2 text-secondary-container"><span class="material-symbols-outlined text-[18px]">all_inclusive</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Why Loop exists</span></div>
+<p class="font-headline-sm text-headline-sm text-on-primary leading-snug">1,240 verified answers preserved across 4 graduating classes.</p>
+<p class="font-label-md text-label-md text-on-primary/70">Every one was once locked in a senior's head. Now it stays.</p>
+</section>
+
+</main>
+<nav class="fixed bottom-0 left-0 w-full max-w-lg mx-auto z-50 flex justify-around items-center px-2 h-20 bg-surface-container shadow-[0_-4px_16px_rgba(29,43,34,0.06)] rounded-t-2xl">
+<a href="home.html" class="navbtn active"><span class="material-symbols-outlined fill">home</span><span class="navlbl">Ask</span></a>
+<a href="explore.html" class="navbtn "><span class="material-symbols-outlined ">explore</span><span class="navlbl">Explore</span></a>
+<a href="askai.html" class="navbtn "><span class="material-symbols-outlined ">auto_awesome</span><span class="navlbl">Ask AI</span></a>
+<a href="spaces.html" class="navbtn "><span class="material-symbols-outlined ">group_work</span><span class="navlbl">Spaces</span></a>
+<a href="profile.html" class="navbtn "><span class="material-symbols-outlined ">person</span><span class="navlbl">Profile</span></a>
+</nav>
+</body></html>

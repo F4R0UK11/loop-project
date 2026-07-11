@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Loop - Ask AI</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f5eddc",
+                    "surface-variant": "#eae2d1",
+                    "inverse-surface": "#343025",
+                    "surface-container-high": "#efe7d6",
+                    "tertiary-container": "#421e00",
+                    "inverse-primary": "#bacbbd",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#230d00",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434844",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#536a5b",
+                    "surface-container-highest": "#eae2d1",
+                    "on-primary-fixed": "#111e16",
+                    "surface-container-low": "#fbf3e2",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#301400",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1f1b11",
+                    "surface": "#fff8ef",
+                    "secondary-container": "#cfe9d7",
+                    "outline-variant": "#c3c8c2",
+                    "secondary": "#4d6455",
+                    "on-surface": "#1f1b11",
+                    "outline": "#737873",
+                    "primary-fixed": "#d6e7d9",
+                    "on-secondary-fixed-variant": "#354c3e",
+                    "tertiary-fixed-dim": "#ffb781",
+                    "primary-fixed-dim": "#bacbbd",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#08160e",
+                    "background": "#fff8ef",
+                    "on-primary-container": "#839387",
+                    "secondary-fixed": "#cfe9d7",
+                    "surface-bright": "#fff8ef",
+                    "inverse-on-surface": "#f8f0df",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-dim": "#e1d9c9",
+                    "on-tertiary-container": "#cf7a31",
+                    "secondary-fixed-dim": "#b3cdbb",
+                    "on-tertiary-fixed-variant": "#703800",
+                    "primary-container": "#1d2b22",
+                    "on-secondary-fixed": "#0a2015",
+                    "surface-tint": "#536257",
+                    "on-primary-fixed-variant": "#3b4a40"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "md": "16px",
+                    "gutter-mobile": "12px",
+                    "sm": "12px",
+                    "xl": "32px",
+                    "xs": "8px",
+                    "lg": "24px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "Work Sans"
+                    ],
+                    "body-lg": [
+                            "Work Sans"
+                    ],
+                    "label-sm": [
+                            "Work Sans"
+                    ],
+                    "headline-lg": [
+                            "\"Source Serif 4\""
+                    ],
+                    "headline-sm": [
+                            "\"Source Serif 4\""
+                    ],
+                    "headline-md": [
+                            "\"Source Serif 4\""
+                    ],
+                    "body-md": [
+                            "Work Sans"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "17px",
+                            {
+                                    "lineHeight": "26px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "11px",
+                            {
+                                    "lineHeight": "14px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "30px",
+                            {
+                                    "lineHeight": "38px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "15px",
+                            {
+                                    "lineHeight": "22px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Hide scrollbar for horizontal scroll areas */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Subtle animated dot for typing indicator, just in case */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        .dot { animation: bounce 1.4s infinite ease-in-out both; }
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface flex flex-col h-[884px] overflow-hidden antialiased">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface/90 backdrop-blur-md">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">menu</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Ask AI</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant shadow-sm border border-outline-variant/20 hover:opacity-80 transition-opacity cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A close-up, softly lit portrait photo of a university student looking relaxed and thoughtful, natural lighting, warm academic setting in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4DB9-f_pKKdOMzT06Ostdc5cw6n3_qBPP1g_DYH8Ds662TeLGemajW4pcR-8sY4wi9UyL2sKeEnas-q1z5xkVDGShYqiSDPdGyHyAKFScUAv6b1_8jS_j2ewl-Iu4tgXGKSYVtm0JMk4Uay3DXt1ca8R3WZDznOeXhGBOxuYiiP8RSSoNqcOCS5uQFWsaLfs9MPaVo3-NJxFqwEJPDjeiR501lHaAntQ5fsyxKG9iu4XV8IXH7qarirRCSvx9QXIaDGeyM5J8O8sr"/>
+</div>
+</header>
+<!-- Main Chat Canvas -->
+<main class="flex-1 overflow-y-auto px-margin-mobile pt-20 pb-48 flex flex-col gap-lg scroll-smooth relative">
+<!-- Timestamp -->
+<div class="w-full text-center mt-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Today, 10:42 AM</span>
+</div>
+<!-- AI Intro Message -->
+<div class="self-start max-w-[85%] bg-surface-container-low p-sm rounded-2xl rounded-tl-sm shadow-[0_2px_8px_rgba(29,43,34,0.03)] border border-outline-variant/10">
+<p class="font-body-md text-body-md text-on-surface">I answer using AUI's handbook and real student history. I don't guess about things I haven't seen.</p>
+</div>
+<!-- User Message -->
+<div class="self-end max-w-[85%] bg-primary text-on-primary p-sm rounded-2xl rounded-tr-sm shadow-[0_4px_12px_rgba(29,43,34,0.08)]">
+<p class="font-body-md text-body-md">How do I apply for exchange?</p>
+</div>
+<!-- AI Synthesized Reply Card -->
+<div class="self-start w-full bg-surface-container-low border-[1.5px] border-primary rounded-xl relative overflow-hidden shadow-[0_6px_16px_rgba(29,43,34,0.05)] mt-xs transition-transform duration-150 ease-in-out hover:scale-[0.995]">
+<div class="p-md pb-lg">
+<!-- Header -->
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Synthesized Answer</span>
+</div>
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<!-- Content -->
+<div class="font-body-md text-body-md text-on-surface space-y-3 mb-md leading-relaxed">
+<p>To apply for an exchange program at AUI, you must meet the following criteria:</p>
+<ul class="list-disc pl-5 space-y-1 text-on-surface-variant">
+<li>Maintain a minimum CGPA of 3.0.</li>
+<li>Have completed at least 60 credits prior to departure.</li>
+<li>Not be in your final semester.</li>
+</ul>
+<p>The application portal typically opens on September 1st for Spring exchanges and February 1st for Fall exchanges. You must submit a letter of motivation and two academic references.</p>
+</div>
+<!-- Source Chips -->
+<div class="flex flex-wrap gap-xs pt-xs border-t border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider w-full mb-1">Sources</span>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-md text-label-md border border-outline-variant/40 flex items-center gap-1 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[14px]">menu_book</span>
+                        AUI Handbook pg. 42
+                    </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-md text-label-md border border-outline-variant/40 flex items-center gap-1 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[14px]">language</span>
+                        OIP Portal
+                    </button>
+</div>
+</div>
+<!-- AI Confidence Bar -->
+<div class="h-[4px] w-full bg-surface-container flex absolute bottom-0 left-0" title="High Confidence (92%) based on source alignment">
+<div class="h-full bg-secondary w-[92%] rounded-r-full transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+</main>
+<!-- Input Area & Suggested Prompts -->
+<div class="fixed bottom-20 left-0 w-full bg-gradient-to-t from-surface via-surface to-transparent pt-xl pb-sm px-margin-mobile z-40 flex flex-col gap-sm">
+<!-- Suggested Prompts Chips -->
+<div class="flex overflow-x-auto gap-sm pb-2 scrollbar-hide -mx-margin-mobile px-margin-mobile">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-high text-primary font-label-md text-label-md border border-outline-variant/30 shadow-sm hover:bg-surface-variant transition-colors">What's the attendance policy?</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-high text-primary font-label-md text-label-md border border-outline-variant/30 shadow-sm hover:bg-surface-variant transition-colors">How does exchange work?</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-high text-primary font-label-md text-label-md border border-outline-variant/30 shadow-sm hover:bg-surface-variant transition-colors">Where is my class?</button>
+</div>
+<!-- Input Field -->
+<div class="flex items-center gap-sm bg-surface-container-lowest rounded-full pl-sm pr-xs py-xs border border-outline-variant/50 shadow-[0_4px_12px_rgba(29,43,34,0.06)] focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<button class="material-symbols-outlined text-on-surface-variant p-1 hover:text-primary transition-colors">mic</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 font-body-md text-body-md placeholder:text-on-surface-variant/60 text-on-surface px-1" placeholder="Ask anything..." type="text"/>
+<button class="bg-tertiary-container text-on-tertiary p-2 rounded-full flex items-center justify-center hover:opacity-90 transition-opacity transform active:scale-95">
+<span class="material-symbols-outlined text-[20px] font-bold">arrow_upward</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-surface-container-highest shadow-[0_-4px_12px_rgba(29,43,34,0.05)] rounded-t-xl">
+<!-- Ask (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors rounded-lg w-16">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Ask</span>
+</button>
+<!-- Explore (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors rounded-lg w-16">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<!-- Ask AI (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1.5 hover:bg-surface-variant/50 transition-colors scale-98 duration-100 min-w-[64px]">
+<span class="material-symbols-outlined mb-0.5" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-bold">Ask AI</span>
+</button>
+<!-- Spaces (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors rounded-lg w-16">
+<span class="material-symbols-outlined mb-1">group_work</span>
+<span class="font-label-sm text-label-sm">Spaces</span>
+</button>
+<!-- Profile (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors rounded-lg w-16">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Script to handle dynamic padding for input area to prevent nav overlap on different devices -->
+<script>
+        // Simple script to adjust padding if bottom nav changes height dynamically, 
+        // though standard h-20 tailwind class keeps it consistent here.
+        const mainEl = document.querySelector('main');
+        // Scroll to bottom on load to show latest message
+        window.onload = () => {
+            mainEl.scrollTop = mainEl.scrollHeight;
+        };
+    </script>
+</body></html>

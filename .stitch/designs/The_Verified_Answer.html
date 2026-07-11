@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Loop - Verified Answer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f5eddc",
+                    "surface-variant": "#eae2d1",
+                    "inverse-surface": "#343025",
+                    "surface-container-high": "#efe7d6",
+                    "tertiary-container": "#421e00",
+                    "inverse-primary": "#bacbbd",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#230d00",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#434844",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#536a5b",
+                    "surface-container-highest": "#eae2d1",
+                    "on-primary-fixed": "#111e16",
+                    "surface-container-low": "#fbf3e2",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#301400",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1f1b11",
+                    "surface": "#fff8ef",
+                    "secondary-container": "#cfe9d7",
+                    "outline-variant": "#c3c8c2",
+                    "secondary": "#4d6455",
+                    "on-surface": "#1f1b11",
+                    "outline": "#737873",
+                    "primary-fixed": "#d6e7d9",
+                    "on-secondary-fixed-variant": "#354c3e",
+                    "tertiary-fixed-dim": "#ffb781",
+                    "primary-fixed-dim": "#bacbbd",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#08160e",
+                    "background": "#fff8ef",
+                    "on-primary-container": "#839387",
+                    "secondary-fixed": "#cfe9d7",
+                    "surface-bright": "#fff8ef",
+                    "inverse-on-surface": "#f8f0df",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-dim": "#e1d9c9",
+                    "on-tertiary-container": "#cf7a31",
+                    "secondary-fixed-dim": "#b3cdbb",
+                    "on-tertiary-fixed-variant": "#703800",
+                    "primary-container": "#1d2b22",
+                    "on-secondary-fixed": "#0a2015",
+                    "surface-tint": "#536257",
+                    "on-primary-fixed-variant": "#3b4a40"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "md": "16px",
+                    "gutter-mobile": "12px",
+                    "sm": "12px",
+                    "xl": "32px",
+                    "xs": "8px",
+                    "lg": "24px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "Work Sans"
+                    ],
+                    "body-lg": [
+                            "Work Sans"
+                    ],
+                    "label-sm": [
+                            "Work Sans"
+                    ],
+                    "headline-lg": [
+                            "\"Source Serif 4\""
+                    ],
+                    "headline-sm": [
+                            "\"Source Serif 4\""
+                    ],
+                    "headline-md": [
+                            "\"Source Serif 4\""
+                    ],
+                    "body-md": [
+                            "Work Sans"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "17px",
+                            {
+                                    "lineHeight": "26px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "11px",
+                            {
+                                    "lineHeight": "14px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "30px",
+                            {
+                                    "lineHeight": "38px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "15px",
+                            {
+                                    "lineHeight": "22px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            font-family: 'Work Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .shadow-diffuse {
+            box-shadow: 0 4px 12px rgba(29, 43, 34, 0.05);
+        }
+
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+
+        .pt-safe {
+            padding-top: env(safe-area-inset-top, 0px);
+        }
+
+        /* Prevent scrolling on body when nav is active if needed */
+        .overflow-hidden-touch {
+            overflow: hidden;
+            touch-action: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col pt-16 pb-32 md:pb-0">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface/80 backdrop-blur-md pt-safe shadow-diffuse hidden md:flex">
+<div class="flex items-center gap-sm cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary font-bold text-[24px]" data-icon="menu">menu</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Loop</span>
+</div>
+<div class="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+<img alt="User profile photo" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A small, professional portrait photo of a university student smiling warmly, set against a soft cream background. The lighting is studio quality, creating a trustworthy and polished academic vibe. The photo is cropped tightly into a circle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsy6h68RNv39yDhcXo_eKnkcM48BmK2taTnTU9CYcxc0UL3LG6cymFCDTxX9jEE3lqFqRQn0U1wTMvvYnBkfHY0i7mGlvWZ7ZfGoXlE-fHVooXyJeQK69U2_YgxSNrB-KXbj-YkGOI0IdDdRpLvg8pIwqckX1_3jZZ8txGPEp-KymNEIo1-jw9OH4ecOIEiTLyWNm8d8pk8x4cpQsmSaAVf8ZyZ4CDtusW3s3fYlQR615XLK88oqb6oMcQ-7JAjJLRSFi8a5QGidli"/>
+</div>
+</header>
+<!-- TopAppBar Mobile (Sub-page context: Back button) -->
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface/80 backdrop-blur-md pt-safe md:hidden">
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+<span class="font-label-md text-label-md">Back to Search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">bookmark_border</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-2xl mx-auto px-margin-mobile flex flex-col gap-xl mt-4 md:mt-8">
+<!-- Header Section -->
+<section class="flex flex-col gap-sm">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary leading-tight">
+                Do I need advisor confirmation to un-drop a course?
+            </h1>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-body-md">
+<span>Asked by Anonymous</span>
+<span>•</span>
+<span>2 days ago</span>
+</div>
+</section>
+<!-- AI Answer Card (Synthesized State) -->
+<section class="bg-surface-container-low border-[1.5px] border-primary rounded-xl relative overflow-hidden shadow-diffuse transition-transform duration-150 ease-in-out active:scale-[0.98]">
+<!-- Spark Icon Top Right -->
+<div class="absolute top-4 right-4 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="p-lg flex flex-col gap-md">
+<!-- Label -->
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+                    AUI AI
+                </div>
+<!-- Answer Text -->
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                    Yes, generally you need advisor approval to "un-drop" or re-enroll in a course after the official drop deadline has passed. The registrar typically requires a signed add/drop slip or a digital confirmation from your academic advisor stating that the late addition will not negatively impact your degree progress.
+                </p>
+<!-- Source Chips -->
+<div class="flex flex-wrap gap-sm mt-2">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">menu_book</span>
+                        Student Handbook p.14
+                    </div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">groups</span>
+                        Facebook: Add/Drop group
+                    </div>
+</div>
+<!-- Disclaimer & Feedback -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-primary/10 mt-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant italic max-w-[280px]">
+                        AI can be wrong — a verified member confirms answers below.
+                    </p>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">thumb_down</span>
+</button>
+</div>
+<button class="font-label-sm text-label-sm text-primary underline underline-offset-2 hover:opacity-80 transition-opacity">
+                            Suggest a correction
+                        </button>
+</div>
+</div>
+</div>
+<!-- AI Confidence Bar -->
+<div class="w-full h-1 bg-surface-container-high flex">
+<div class="h-full bg-secondary w-[92%]" title="Confidence: High (92%)"></div>
+</div>
+<!-- Confidence Label (Screen reader / hidden visually but accessible) -->
+<div class="sr-only">Confidence: High (92%)</div>
+</section>
+<!-- Verification Strip -->
+<section class="flex flex-col gap-sm">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Verification</h2>
+<div class="bg-secondary-container/30 rounded-xl p-md flex items-start gap-md shadow-sm border border-secondary-container">
+<div class="relative flex-shrink-0">
+<img alt="Sidra M. profile photo" class="w-10 h-10 rounded-full object-cover border-2 border-surface" data-alt="A small, professional avatar photo of a female university student with a warm smile, set against a soft, well-lit background. The photo is tightly cropped into a circle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ9dbF3-urlnB6_Iruu2SF8n_sKgtQuyOF2sbuF5V9SbtG5O2eH3gdqwCk42eJN1GE3SgMH5tal2TKipp1c7H21MCUadhzj1CEXR3hMUzKg8TuW0Uzjpm1KEjnVLnPvue2VvCaPTdmT3fcJWVy8NFYvRO_p16CQBhSyb3rjOEZrD7lED2bMql4KkEEITW0HgK-4SVcS0aJKV0ywmYiZ0nEtq9_FFZcEDDpV_tZYu-BuqwyK13_7WRWo3bf7UF8WKvTfnOB2lr_9mdD"/>
+<div class="absolute -bottom-1 -right-1 bg-secondary text-on-secondary rounded-full w-4 h-4 flex items-center justify-center border border-surface">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex flex-wrap items-baseline gap-x-2">
+<span class="font-body-md text-body-md font-semibold text-primary">Confirmed by Sidra M.</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Senior · did this exact process</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">verified 2 days ago</span>
+</div>
+<div class="flex-shrink-0">
+<div class="inline-flex items-center justify-center px-2 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm">
+                        +3 confirmed
+                    </div>
+</div>
+</div>
+</section>
+<!-- Footer Note -->
+<div class="text-center mt-lg pb-xl">
+<p class="font-label-md text-label-md text-on-surface-variant italic">
+                Your feedback trains Loop for the next person.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) - Suppressed here based on logic, but requested by prompt -->
+<!-- Note: Following strict rules, sub-pages with "Back" should suppress Nav. However, the user explicitly requested "Bottom Nav included". We follow the explicit prompt request while maintaining the styles. Assuming intent is "Ask" related based on context. -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-surface-container dark:bg-surface-container-highest shadow-[0_-4px_12px_rgba(29,43,34,0.05)] rounded-t-xl md:hidden">
+<!-- Ask (Active - Assuming this is an answer to a question asked) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 hover:opacity-80 transition-opacity active:scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Ask</span>
+</button>
+<!-- Explore -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<!-- Ask AI -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm text-label-sm">Ask AI</span>
+</button>
+<!-- Spaces -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="group_work">group_work</span>
+<span class="font-label-sm text-label-sm">Spaces</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+</body></html>

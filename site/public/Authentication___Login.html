@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Loop | Academic Intelligence</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#fbf3e2",
+                    "surface-container-high": "#efe7d6",
+                    "inverse-surface": "#343025",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1f1b11",
+                    "secondary-fixed": "#cfe9d7",
+                    "on-primary-fixed-variant": "#3b4a40",
+                    "on-tertiary-container": "#cf7a31",
+                    "surface-container-highest": "#eae2d1",
+                    "inverse-primary": "#bacbbd",
+                    "on-tertiary-fixed": "#301400",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#434844",
+                    "on-secondary-fixed-variant": "#354c3e",
+                    "secondary": "#4d6455",
+                    "primary-fixed": "#d6e7d9",
+                    "tertiary-fixed-dim": "#ffb781",
+                    "surface-tint": "#536257",
+                    "surface-bright": "#fff8ef",
+                    "on-primary-container": "#839387",
+                    "on-primary": "#ffffff",
+                    "surface": "#fff8ef",
+                    "on-tertiary-fixed-variant": "#703800",
+                    "primary-fixed-dim": "#bacbbd",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#536a5b",
+                    "tertiary": "#230d00",
+                    "surface-container": "#f5eddc",
+                    "inverse-on-surface": "#f8f0df",
+                    "outline-variant": "#c3c8c2",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-primary-fixed": "#111e16",
+                    "surface-dim": "#e1d9c9",
+                    "secondary-container": "#cfe9d7",
+                    "primary-container": "#1d2b22",
+                    "tertiary-container": "#421e00",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#eae2d1",
+                    "on-surface": "#1f1b11",
+                    "outline": "#737873",
+                    "on-secondary-fixed": "#0a2015",
+                    "primary": "#08160e",
+                    "secondary-fixed-dim": "#b3cdbb",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "background": "#fff8ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "base": "4px",
+                    "sm": "12px",
+                    "md": "16px",
+                    "margin-mobile": "20px",
+                    "gutter-mobile": "12px",
+                    "xl": "32px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-md": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "body-md": ["Work Sans"],
+                    "headline-sm": ["\"Source Serif 4\""],
+                    "headline-md": ["\"Source Serif 4\""],
+                    "headline-lg": ["\"Source Serif 4\""]
+            },
+            "fontSize": {
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fff8ef;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .bg-pattern {
+            background-color: #fff8ef;
+            background-image: radial-gradient(#1d2b22 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+        .academic-glow {
+            box-shadow: 0 4px 12px rgba(29, 43, 34, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen items-center justify-between overflow-x-hidden font-body-md text-on-background selection:bg-tertiary-fixed">
+<!-- Atmospheric Background Layers -->
+<div class="fixed inset-0 z-[-1] bg-pattern pointer-events-none"></div>
+<!-- Top Branding Section -->
+<header class="w-full flex flex-col items-center pt-xl px-margin-mobile">
+<div class="mb-lg mt-12 transform hover:scale-105 transition-transform duration-500 ease-in-out cursor-default">
+<span class="font-headline-lg text-[40px] leading-none text-primary tracking-tight">Loop</span>
+</div>
+<div class="max-w-[320px] text-center">
+<h1 class="font-headline-sm text-headline-sm text-on-surface mb-sm">
+                Your campus intelligence, verified by the community.
+            </h1>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[390px] px-margin-mobile flex flex-col items-center justify-center space-y-lg flex-grow py-xl">
+<!-- Imagery Section (Bento Inspired Layout) -->
+<div class="w-full grid grid-cols-4 gap-gutter-mobile mb-xl h-48">
+<div class="col-span-3 rounded-xl overflow-hidden academic-glow relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A serene, high-end photography of an Ivy League university library at dusk. Warm golden light spills from large arched windows onto dark mahogany tables. The atmosphere is quiet and intellectually charged, featuring a palette of deep forest greens, rich browns, and soft cream paper tones. The focus is on the quiet architectural grandeur and scholarly history." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVw7Vxw-47KxrvxvAQBDV-exbKG7YadPEdkC8sPa_dAGPBkltnnI982_iX8v0DDJ_IrRKHUBwBF3sXL-V7MpIZPSgcm4IuF86oQ_vIoJuWoqQ03pMgUBHwlLqojIc7moxtU6q8DXawwM3Y79TY9uVoKkedi2bPTy5jx-LBFmBKReIcz_qiWb-AHYgb_bBdCQ2YdlwO-COtNe9QTjKxNA5ubD9PnKmdd39vV8ulRvSvmm1TwZt8S_qHgW2_71jJ4-Pua_avVtPvf9YD"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<div class="col-span-1 rounded-xl overflow-hidden academic-glow flex flex-col gap-base">
+<div class="h-1/2 bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-size: 24px;">school</span>
+</div>
+<div class="h-1/2 bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed" style="font-size: 24px;">verified</span>
+</div>
+</div>
+</div>
+<!-- Authentication Actions -->
+<div class="w-full space-y-md">
+<!-- Primary Action -->
+<button class="w-full bg-[#B5651D] hover:bg-[#a05a1a] text-white py-md px-lg rounded-full font-label-md text-label-md flex items-center justify-center gap-sm academic-glow transform active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                Sign in with Organization Credentials
+            </button>
+<!-- Divider -->
+<div class="flex items-center w-full gap-md py-base">
+<div class="h-[1px] flex-grow bg-outline-variant opacity-30"></div>
+<span class="font-label-sm text-label-sm text-outline">OR</span>
+<div class="h-[1px] flex-grow bg-outline-variant opacity-30"></div>
+</div>
+<!-- Secondary Action -->
+<button class="w-full bg-transparent border border-outline/30 hover:bg-surface-container-low text-on-surface py-md px-lg rounded-full font-label-md text-label-md flex items-center justify-center gap-sm transition-colors duration-200 group active:scale-[0.98]">
+<svg class="group-hover:opacity-80 transition-opacity" fill="none" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" fill="#0078D4"></path>
+<path d="M10.5 7.5H13.5V10.5H10.5V7.5ZM10.5 13.5H13.5V16.5H10.5V13.5ZM7.5 7.5H10.5V10.5H7.5V7.5ZM7.5 13.5H10.5V16.5H7.5V13.5ZM13.5 7.5H16.5V10.5H13.5V7.5ZM13.5 13.5H16.5V16.5H13.5V13.5Z" fill="white"></path>
+</svg>
+                Continue with Outlook
+            </button>
+</div>
+<!-- Contextual Support -->
+<div class="pt-sm">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors underline decoration-secondary/30 underline-offset-4" href="#">
+                Trouble logging in? Contact support
+            </a>
+</div>
+</main>
+<!-- Bottom Footer Section -->
+<footer class="w-full flex flex-col items-center pb-xl px-margin-mobile space-y-md">
+<div class="max-w-[280px] text-center p-md bg-surface-container/40 rounded-xl border border-outline-variant/10">
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
+                Only accessible with a verified .edu or institutional email address.
+            </p>
+</div>
+<div class="flex items-center gap-lg">
+<a class="font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<a class="font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('mousedown', () => {
+                    button.style.transform = 'scale(0.97)';
+                });
+                button.addEventListener('mouseup', () => {
+                    button.style.transform = '';
+                });
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = '';
+                });
+            });
+
+            // Smooth appear animation
+            const main = document.querySelector('main');
+            main.style.opacity = '0';
+            main.style.transform = 'translateY(10px)';
+            main.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            
+            setTimeout(() => {
+                main.style.opacity = '1';
+                main.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body></html>

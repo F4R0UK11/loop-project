@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Loop - Space Discussion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f5eddc",
+                        "surface-variant": "#eae2d1",
+                        "inverse-surface": "#343025",
+                        "surface-container-high": "#efe7d6",
+                        "tertiary-container": "#421e00",
+                        "inverse-primary": "#bacbbd",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#230d00",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#434844",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#536a5b",
+                        "surface-container-highest": "#eae2d1",
+                        "on-primary-fixed": "#111e16",
+                        "surface-container-low": "#fbf3e2",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1f1b11",
+                        "surface": "#fff8ef",
+                        "secondary-container": "#cfe9d7",
+                        "outline-variant": "#c3c8c2",
+                        "secondary": "#4d6455",
+                        "on-surface": "#1f1b11",
+                        "outline": "#737873",
+                        "primary-fixed": "#d6e7d9",
+                        "on-secondary-fixed-variant": "#354c3e",
+                        "tertiary-fixed-dim": "#ffb781",
+                        "primary-fixed-dim": "#bacbbd",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#08160e",
+                        "background": "#fff8ef",
+                        "on-primary-container": "#839387",
+                        "secondary-fixed": "#cfe9d7",
+                        "surface-bright": "#fff8ef",
+                        "inverse-on-surface": "#f8f0df",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-dim": "#e1d9c9",
+                        "on-tertiary-container": "#cf7a31",
+                        "secondary-fixed-dim": "#b3cdbb",
+                        "on-tertiary-fixed-variant": "#703800",
+                        "primary-container": "#1d2b22",
+                        "on-secondary-fixed": "#0a2015",
+                        "surface-tint": "#536257",
+                        "on-primary-fixed-variant": "#3b4a40"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "md": "16px",
+                        "gutter-mobile": "12px",
+                        "sm": "12px",
+                        "xl": "32px",
+                        "xs": "8px",
+                        "lg": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "label-sm": ["Work Sans"],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "headline-sm": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base styles */
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Subtle shadow for Neo-Academic depth */
+        .neo-shadow {
+            box-shadow: 0 4px 12px rgba(29, 43, 34, 0.05);
+        }
+
+        /* Material Icon styling */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        /* AI Loading Animation */
+        @keyframes subtlePulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .ai-loading-pulse {
+            animation: subtlePulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .shimmer-track {
+            overflow: hidden;
+            position: relative;
+        }
+        .shimmer-track::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(29, 43, 34, 0.1), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface text-primary flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface/80 backdrop-blur-md flat no shadows">
+<button class="flex items-center justify-center w-10 h-10 hover:opacity-80 transition-opacity active:scale-95 duration-150 ease-in-out text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Loop</h1>
+<button class="flex items-center justify-center w-10 h-10 hover:opacity-80 transition-opacity active:scale-95 duration-150 ease-in-out">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small, professional circular avatar portrait of a university student with dark hair, smiling warmly in a well-lit academic library setting, light mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCACOSp1m6nC80Pu6fa1YRU76EtEcnlLnM8Tu5aZCX47-6JNHiguLSZ1OF_X3zz1b_mtwccYPFtgj5z2WJJv2bewYcRIuN4KlgK3dIz0fT4DrI_ar2XEr5vg1hjQSbTIuToYVWfi4J4eF0TtkkutzUiMjmTVfQFYxpqBQKi1RCqOteRE0ZvDkfO1-uDnneIsfFWhknTttkuWZMqvmf3rZGblUxl3bVVRitcUi2hAdP0RiYKfivgX9egs1_cze-6uKL8I1LlLxaF1H3R"/>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 pt-16 pb-24 overflow-y-auto">
+<!-- Space Header Section -->
+<section class="px-margin-mobile pt-lg pb-md">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xs leading-tight">Exchange &amp;<br/>Study Abroad</h2>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md">
+<span>12.4k members</span>
+<span class="w-1 h-1 bg-outline rounded-full opacity-50"></span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px] icon-fill">shield</span>
+<span>Auto-moderated for safety</span>
+</div>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-label-md px-4 py-2 rounded-full hover:opacity-80 transition-opacity active:scale-95">
+                    Join
+                </button>
+</div>
+<div class="h-px w-full bg-outline-variant opacity-30 mt-md"></div>
+</section>
+<!-- Expanded Thread Section -->
+<section class="px-margin-mobile">
+<!-- OP Question -->
+<article class="mb-lg">
+<div class="flex items-center gap-sm mb-sm">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar of a student looking thoughtful, outdoor campus background, soft natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl0KNXYPd1X8zflGaEeiqzINWznMUduPaDe5KQlITx8cKap3I41SnGvJx3v1IW1onaBqxMbgKPj2MqDtPESo8vPqXNiIU6HpwAhhGfUMqsV_iSOEgll3GHym1UCAOODPHI3cbDj_pxtPDStBo9U3c7b8QNknBL3ID-S9KV94QR6voriCF8euf1CsvNn8LlAI3kRdflChTkTUlWVgzx8a4ePYYbBU2MsSICZEN8CxksfljTMNTh41-gF9V0kznXSuqlmVflk8x-CRs4"/>
+<div>
+<div class="font-label-md text-primary">Alex Chen</div>
+<div class="font-label-sm text-on-surface-variant">2 hours ago</div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Any tips for ISEP applications?</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                    I'm starting my ISEP application for next Fall. Planning to aim for universities in France or Spain. The course mapping section seems a bit overwhelming. Does anyone have advice on how to structure the academic justification part?
+                </p>
+<div class="flex items-center gap-md mt-sm text-on-surface-variant font-label-md">
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+<span>42</span>
+</button>
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+<span>8 Replies</span>
+</button>
+</div>
+</article>
+<!-- AI Draft Answer (Synthesized State) -->
+<div class="bg-surface-container-low border-[1.5px] border-primary rounded-xl p-md mb-lg relative overflow-hidden">
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-2 text-primary font-label-md">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span class="font-semibold">Synthesizing Institutional Data...</span>
+</div>
+<span class="material-symbols-outlined text-outline">more_horiz</span>
+</div>
+<div class="space-y-3 ai-loading-pulse mb-md">
+<div class="h-4 bg-surface-variant rounded w-3/4 shimmer-track"></div>
+<div class="h-4 bg-surface-variant rounded w-full shimmer-track"></div>
+<div class="h-4 bg-surface-variant rounded w-5/6 shimmer-track"></div>
+</div>
+<div class="font-label-sm text-on-surface-variant italic mb-sm">
+                    Retrieving sources from ISEP guidelines and past successful applicant matrices...
+                </div>
+<!-- Empty Confidence Bar -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-surface-variant"></div>
+</div>
+<!-- Human Replies Divider -->
+<div class="flex items-center gap-sm mb-md">
+<h4 class="font-label-md text-primary font-bold uppercase tracking-wider">Top Replies</h4>
+<div class="h-px flex-1 bg-outline-variant opacity-20"></div>
+</div>
+<!-- Reply 1 (Verified, Top Helper) -->
+<article class="bg-surface-container-low rounded-xl p-md mb-md neo-shadow relative">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-sm">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Avatar portrait of a female university advisor with glasses, smiling professionally, indoor library setting, soft focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlrEsKo56X6Sg3sbAFM_vYiyfFtCCQuGM7ww8k85erzkPA4kQ4wEX64j7QUP3Of3foj0SYVTibXpBa0uo7nQ-F0HwWKUKBNDO-ZAY_zviNgRdetwi7U1tQoepqVq77spmCidsVURjyoiCkllSGeQAf0k30HEwQJQjWq8U4CQZCIarG96b4JXhbMJzRmc0QL0ezNcvXMa1LmOFIvQCUmiNEfgtdZOU5dYv8AT4kkC4vCfDbVtsGJya94c7PKpxx3zm_f5dXFvacIedF"/>
+<div>
+<div class="flex items-center gap-1">
+<span class="font-label-md text-primary font-semibold">Sarah Jenkins</span>
+<span class="material-symbols-outlined text-[16px] text-secondary icon-fill" title="Verified Member">verified</span>
+</div>
+<div class="font-label-sm text-on-surface-variant">Study Abroad Advisor • 1 hr ago</div>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container">military_tech</span>
+<span class="font-label-sm text-tertiary-container">Top Helper +15</span>
+</div>
+</div>
+<p class="font-body-md text-on-background mb-sm">
+                    The key to the academic justification is showing direct alignment between your home university's degree requirements and the host's offerings. Don't just list classes; map them to specific credits you need to graduate. Also, for France specifically, make sure to highlight any prior language proficiency even if the classes are in English.
+                </p>
+<div class="flex items-center gap-md text-on-surface-variant font-label-md mt-sm">
+<button class="flex items-center gap-1 text-secondary bg-secondary-container px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[18px] icon-fill">arrow_upward</span>
+<span class="font-semibold">128</span>
+</button>
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+<span>Reply</span>
+</button>
+</div>
+</article>
+<!-- Reply 2 -->
+<article class="bg-surface-container-low rounded-xl p-md mb-md neo-shadow">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-headline-sm">
+                        M
+                    </div>
+<div>
+<div class="font-label-md text-primary font-semibold">Marcus_T</div>
+<div class="font-label-sm text-on-surface-variant">Student • 45 mins ago</div>
+</div>
+</div>
+<p class="font-body-md text-on-background mb-sm">
+                    I applied to Spain last year! Have backups for your backups. The class registration process there can be chaotic, so your academic justification should include at least 2-3 alternate classes per required slot.
+                </p>
+<div class="flex items-center gap-md text-on-surface-variant font-label-md mt-sm">
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+<span>14</span>
+</button>
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+<span>Reply</span>
+</button>
+</div>
+</article>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-[100px] right-margin-mobile bg-primary-container text-on-primary-container font-label-md font-semibold px-5 py-4 rounded-full flex items-center gap-2 neo-shadow z-40 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">edit_square</span>
+        Ask in this Space
+    </button>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container text-primary flex justify-around items-center px-2 pb-safe h-20 fixed bottom-0 left-0 w-full z-50 rounded-t-xl shadow-[0_-4px_12px_rgba(29,43,34,0.05)]">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Ask</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span class="font-label-sm text-label-sm">Ask AI</span>
+</button>
+<!-- Active Tab -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 hover:bg-surface-variant/50 transition-colors active:scale-98 duration-100">
+<span class="material-symbols-outlined mb-1 icon-fill">group_work</span>
+<span class="font-label-sm text-label-sm">Spaces</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+</body></html>

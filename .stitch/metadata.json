@@ -1,0 +1,309 @@
+{
+  "name": "projects/15354641314414163585",
+  "projectId": "15354641314414163585",
+  "title": "Loop: AI Campus Network",
+  "visibility": "PUBLIC",
+  "createTime": "2026-07-10T03:42:42.367919Z",
+  "updateTime": "2026-07-11T22:44:57.547765Z",
+  "projectType": "TEXT_TO_UI_PRO",
+  "origin": "STITCH",
+  "deviceType": "MOBILE",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "SOURCE_SERIF_4",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#1d2b22",
+    "headlineFont": "SOURCE_SERIF_4",
+    "bodyFont": "WORK_SANS",
+    "labelFont": "WORK_SANS",
+    "namedColors": {
+      "background": "#fff8ef",
+      "error": "#ba1a1a",
+      "error_container": "#ffdad6",
+      "inverse_on_surface": "#f8f0df",
+      "inverse_primary": "#bacbbd",
+      "inverse_surface": "#343025",
+      "on_background": "#1f1b11",
+      "on_error": "#ffffff",
+      "on_error_container": "#93000a",
+      "on_primary": "#ffffff",
+      "on_primary_container": "#839387",
+      "on_primary_fixed": "#111e16",
+      "on_primary_fixed_variant": "#3b4a40",
+      "on_secondary": "#ffffff",
+      "on_secondary_container": "#536a5b",
+      "on_secondary_fixed": "#0a2015",
+      "on_secondary_fixed_variant": "#354c3e",
+      "on_surface": "#1f1b11",
+      "on_surface_variant": "#434844",
+      "on_tertiary": "#ffffff",
+      "on_tertiary_container": "#cf7a31",
+      "on_tertiary_fixed": "#301400",
+      "on_tertiary_fixed_variant": "#703800",
+      "outline": "#737873",
+      "outline_variant": "#c3c8c2",
+      "primary": "#08160e",
+      "primary_container": "#1d2b22",
+      "primary_fixed": "#d6e7d9",
+      "primary_fixed_dim": "#bacbbd",
+      "secondary": "#4d6455",
+      "secondary_container": "#cfe9d7",
+      "secondary_fixed": "#cfe9d7",
+      "secondary_fixed_dim": "#b3cdbb",
+      "surface": "#fff8ef",
+      "surface_bright": "#fff8ef",
+      "surface_container": "#f5eddc",
+      "surface_container_high": "#efe7d6",
+      "surface_container_highest": "#eae2d1",
+      "surface_container_low": "#fbf3e2",
+      "surface_container_lowest": "#ffffff",
+      "surface_dim": "#e1d9c9",
+      "surface_tint": "#536257",
+      "surface_variant": "#eae2d1",
+      "tertiary": "#230d00",
+      "tertiary_container": "#421e00",
+      "tertiary_fixed": "#ffdcc5",
+      "tertiary_fixed_dim": "#ffb781"
+    },
+    "designMd": "---\nname: Academic Loop\ncolors:\n  surface: '#fff8ef'\n  surface-dim: '#e1d9c9'\n  surface-bright: '#fff8ef'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#fbf3e2'\n  surface-container: '#f5eddc'\n  surface-container-high: '#efe7d6'\n  surface-container-highest: '#eae2d1'\n  on-surface: '#1f1b11'\n  on-surface-variant: '#434844'\n  inverse-surface: '#343025'\n  inverse-on-surface: '#f8f0df'\n  outline: '#737873'\n  outline-variant: '#c3c8c2'\n  surface-tint: '#536257'\n  primary: '#08160e'\n  on-primary: '#ffffff'\n  primary-container: '#1d2b22'\n  on-primary-container: '#839387'\n  inverse-primary: '#bacbbd'\n  secondary: '#4d6455'\n  on-secondary: '#ffffff'\n  secondary-container: '#cfe9d7'\n  on-secondary-container: '#536a5b'\n  tertiary: '#230d00'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#421e00'\n  on-tertiary-container: '#cf7a31'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#d6e7d9'\n  primary-fixed-dim: '#bacbbd'\n  on-primary-fixed: '#111e16'\n  on-primary-fixed-variant: '#3b4a40'\n  secondary-fixed: '#cfe9d7'\n  secondary-fixed-dim: '#b3cdbb'\n  on-secondary-fixed: '#0a2015'\n  on-secondary-fixed-variant: '#354c3e'\n  tertiary-fixed: '#ffdcc5'\n  tertiary-fixed-dim: '#ffb781'\n  on-tertiary-fixed: '#301400'\n  on-tertiary-fixed-variant: '#703800'\n  background: '#fff8ef'\n  on-background: '#1f1b11'\n  surface-variant: '#eae2d1'\ntypography:\n  headline-lg:\n    fontFamily: Source Serif 4\n    fontSize: 30px\n    fontWeight: '700'\n    lineHeight: 38px\n    letterSpacing: -0.01em\n  headline-md:\n    fontFamily: Source Serif 4\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n  headline-sm:\n    fontFamily: Source Serif 4\n    fontSize: 20px\n    fontWeight: '600'\n    lineHeight: 28px\n  body-lg:\n    fontFamily: Work Sans\n    fontSize: 17px\n    fontWeight: '400'\n    lineHeight: 26px\n  body-md:\n    fontFamily: Work Sans\n    fontSize: 15px\n    fontWeight: '400'\n    lineHeight: 22px\n  label-md:\n    fontFamily: Work Sans\n    fontSize: 13px\n    fontWeight: '500'\n    lineHeight: 18px\n    letterSpacing: 0.02em\n  label-sm:\n    fontFamily: Work Sans\n    fontSize: 11px\n    fontWeight: '600'\n    lineHeight: 14px\n    letterSpacing: 0.05em\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  base: 4px\n  xs: 8px\n  sm: 12px\n  md: 16px\n  lg: 24px\n  xl: 32px\n  margin-mobile: 20px\n  gutter-mobile: 12px\n---\n\n## Brand & Style\nThe design system is built on a \"Neo-Academic\" aesthetic\u2014a blend of traditional scholarly elegance and modern functionalism. It rejects the frantic energy of typical social platforms in favor of a calm, contemplative environment designed for deep knowledge exchange. \n\nThe visual personality is grounded and trustworthy, utilizing an editorial approach to layout that prioritizes readability and quiet authority. By mixing organic, earthy tones with sophisticated serif typography, the design system evokes the feeling of a well-curated university library rather than a digital feed. The emotional response is one of focus, intellectual safety, and community-driven discovery.\n\n## Colors\nThe palette is derived from natural, academic environments. \n\n- **Primary (Deep Forest):** Used for primary text, navigation headers, and foundational structural elements. It provides the \"ink\" that grounds the design.\n- **Secondary (Muted Olive):** Used for metadata, icons, and secondary information layers.\n- **Accent (Terracotta):** Reserved strictly for Call-to-Action (CTA) elements, notifications, and high-priority interactive states.\n- **Background (Warm Sand):** The base canvas for the entire application, providing a soft, low-strain reading experience compared to pure white.\n- **Surface (Soft Cream):** Used for content cards to create a subtle lift from the background without harsh contrast.\n\n## Typography\nThis design system employs a classic serif-and-sans pairing to balance tradition with utility. \n\n**Source Serif 4** is the voice of the institution\u2014used for headings and titles to provide an authoritative, book-like feel. **Work Sans** provides a neutral, highly legible engine for body copy and UI labels, ensuring that long-form academic discussions remain accessible on mobile screens. \n\nLarge headlines should use tighter tracking, while labels and small caps benefit from increased letter spacing to maintain clarity against the textured background.\n\n## Layout & Spacing\nThe layout is optimized for an iOS mobile experience (390px width). It follows a generous spacing rhythm to avoid the \"cluttered\" look of typical social apps.\n\n- **Grid:** A 4-column fluid grid with 20px outer margins and 12px gutters.\n- **Vertical Rhythm:** Content blocks are separated by 24px (lg) to 32px (xl) to create distinct mental \"chapters\" as the user scrolls.\n- **Safe Areas:** Ensure all critical interactive elements remain within the iOS safe-area insets, particularly for bottom navigation bars.\n\n## Elevation & Depth\nDepth is communicated through subtle tonal shifts and soft shadows rather than heavy layering.\n\n- **Surface Layering:** The Warm Sand background is the lowest level. Soft Cream cards sit atop this.\n- **Shadows:** Use extremely diffused, low-opacity shadows (Color: #1D2B22 at 5% alpha, Blur: 12px, Y-Offset: 4px). This creates a \"resting on paper\" effect rather than a \"floating in space\" effect.\n- **Interactions:** On press, cards should not lift higher; instead, they should feature a subtle inner-glow or a slight scale reduction (98%) to feel tactile and physical.\n\n## Shapes\nThe shape language is soft and approachable. \n\nThe standard corner radius for primary content cards and input fields is 12px. Buttons and small tags use a higher relative roundedness (up to 24px/Pill) to distinguish them as interactive elements. This consistent use of \"Rounded\" geometry (Level 2) softens the academic seriousness of the typography, making the \"Loop\" community feel welcoming.\n\n## Components\n\n### Cards\n- **Human Posts:** Soft Cream (#FBF8F2) background, no border, subtle shadow. Simple avatar (circle) and timestamp in Muted Olive.\n- **AI Responses:** Soft Cream background with a 1.5px solid border in Primary (#1D2B22) to denote a \"synthesized\" state. Include a \"Spark\" icon in the top right. \n- **AI Confidence Bar:** A 4px tall track at the bottom of the card. The filled portion uses Muted Olive, while the empty portion uses the Background color.\n\n### Buttons\n- **Primary CTA:** Terracotta (#B5651D) background with White text. Pill-shaped.\n- **Secondary Button:** Transparent background with a Primary (#1D2B22) 1px border.\n\n### Input Fields\n- Underlined or softly boxed in Muted Olive. Use \"Work Sans\" for placeholder text at 15px.\n\n### Chips/Tags\n- Small, Pill-shaped elements using the Background color (#EFE7D6) with Primary text for categorization.\n\n### Lists\n- Use generous 16px padding between list items with a very faint divider (1px, 10% Primary opacity) that does not span the full width of the screen.",
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#1d2b22",
+    "overrideSecondaryColor": "#2f4538",
+    "overrideTertiaryColor": "#b5651d",
+    "overrideNeutralColor": "#efe7d6",
+    "spacingScale": 2,
+    "typography": {
+      "body-lg": {
+        "fontFamily": "Work Sans",
+        "fontSize": "17px",
+        "fontWeight": "400",
+        "lineHeight": "26px"
+      },
+      "body-md": {
+        "fontFamily": "Work Sans",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "lineHeight": "22px"
+      },
+      "headline-lg": {
+        "fontFamily": "Source Serif 4",
+        "fontSize": "30px",
+        "fontWeight": "700",
+        "lineHeight": "38px",
+        "letterSpacing": "-0.01em"
+      },
+      "headline-md": {
+        "fontFamily": "Source Serif 4",
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "lineHeight": "32px"
+      },
+      "headline-sm": {
+        "fontFamily": "Source Serif 4",
+        "fontSize": "20px",
+        "fontWeight": "600",
+        "lineHeight": "28px"
+      },
+      "label-md": {
+        "fontFamily": "Work Sans",
+        "fontSize": "13px",
+        "fontWeight": "500",
+        "lineHeight": "18px",
+        "letterSpacing": "0.02em"
+      },
+      "label-sm": {
+        "fontFamily": "Work Sans",
+        "fontSize": "11px",
+        "fontWeight": "600",
+        "lineHeight": "14px",
+        "letterSpacing": "0.05em"
+      }
+    },
+    "spacing": {
+      "base": "4px",
+      "gutter-mobile": "12px",
+      "lg": "24px",
+      "margin-mobile": "20px",
+      "md": "16px",
+      "sm": "12px",
+      "xl": "32px",
+      "xs": "8px"
+    },
+    "headlineFontFamily": "Source Serif 4",
+    "bodyFontFamily": "Work Sans",
+    "labelFontFamily": "Work Sans"
+  },
+  "metadata": {
+    "userRole": "OWNER"
+  },
+  "screens": {
+    "0b9fc70298db4c6babf9882f08ce5d93": {
+      "id": "0b9fc70298db4c6babf9882f08ce5d93",
+      "sourceScreen": "projects/15354641314414163585/screens/0b9fc70298db4c6babf9882f08ce5d93",
+      "x": 6472,
+      "y": 0,
+      "width": 390,
+      "height": 884
+    },
+    "24a9cb7ab6d8491e9f7b61f0ecb3fac8": {
+      "id": "24a9cb7ab6d8491e9f7b61f0ecb3fac8",
+      "sourceScreen": "projects/15354641314414163585/screens/24a9cb7ab6d8491e9f7b61f0ecb3fac8",
+      "x": 5564,
+      "y": 0,
+      "width": 390,
+      "height": 1366
+    },
+    "2920c72ecd45455eaf4ba3680c84dd40": {
+      "id": "2920c72ecd45455eaf4ba3680c84dd40",
+      "sourceScreen": "projects/15354641314414163585/screens/2920c72ecd45455eaf4ba3680c84dd40",
+      "x": 5110,
+      "y": 0,
+      "width": 390,
+      "height": 1809
+    },
+    "546cf0d9-a46e-47e7-ab39-7f5072cf9b81": {
+      "id": "546cf0d9-a46e-47e7-ab39-7f5072cf9b81",
+      "sourceScreen": "projects/15354641314414163585/screens/5196378879952021317",
+      "x": 1904,
+      "y": 3057,
+      "width": 600,
+      "height": 900
+    },
+    "55ac1e86d789489abe2b53d7c13e45b4": {
+      "id": "55ac1e86d789489abe2b53d7c13e45b4",
+      "sourceScreen": "projects/15354641314414163585/screens/55ac1e86d789489abe2b53d7c13e45b4",
+      "x": 2386,
+      "y": 0,
+      "width": 390,
+      "height": 1054
+    },
+    "62612a8248364c47a5d168aa2e4ded13": {
+      "id": "62612a8248364c47a5d168aa2e4ded13",
+      "sourceScreen": "projects/15354641314414163585/screens/62612a8248364c47a5d168aa2e4ded13",
+      "x": 1478,
+      "y": 0,
+      "width": 390,
+      "height": 1285
+    },
+    "6bd62206-af68-4d46-b55f-9ed158d306de": {
+      "id": "6bd62206-af68-4d46-b55f-9ed158d306de",
+      "sourceScreen": "projects/15354641314414163585/screens/5196378879952022209",
+      "x": 3232,
+      "y": 3057,
+      "width": 600,
+      "height": 900
+    },
+    "77a9b8cf-76ed-4488-84f3-a670c5be9406": {
+      "id": "77a9b8cf-76ed-4488-84f3-a670c5be9406",
+      "sourceScreen": "projects/15354641314414163585/screens/5196378879952020425",
+      "x": 576,
+      "y": 3057,
+      "width": 600,
+      "height": 900
+    },
+    "7ae024ec6b94433893f90c9610e4cfa2": {
+      "id": "7ae024ec6b94433893f90c9610e4cfa2",
+      "sourceScreen": "projects/15354641314414163585/screens/7ae024ec6b94433893f90c9610e4cfa2",
+      "x": 1024,
+      "y": 0,
+      "width": 390,
+      "height": 884
+    },
+    "7d85bc02-d4b9-4c96-a28a-1e43582eadde": {
+      "id": "7d85bc02-d4b9-4c96-a28a-1e43582eadde",
+      "sourceScreen": "projects/15354641314414163585/screens/5196378879952019715",
+      "x": 2568,
+      "y": 3057,
+      "width": 600,
+      "height": 900
+    },
+    "8311d8b0ef484d359655860f2cfa7bf7": {
+      "id": "8311d8b0ef484d359655860f2cfa7bf7",
+      "sourceScreen": "projects/15354641314414163585/screens/8311d8b0ef484d359655860f2cfa7bf7",
+      "x": 3748,
+      "y": 0,
+      "width": 390,
+      "height": 1469
+    },
+    "972c16fdfaf946d08852580776943615": {
+      "id": "972c16fdfaf946d08852580776943615",
+      "sourceScreen": "projects/15354641314414163585/screens/972c16fdfaf946d08852580776943615",
+      "x": 2840,
+      "y": 0,
+      "width": 390,
+      "height": 1661
+    },
+    "9e7bbde06a3d41f78b8d28d7d13ad010": {
+      "id": "9e7bbde06a3d41f78b8d28d7d13ad010",
+      "sourceScreen": "projects/15354641314414163585/screens/9e7bbde06a3d41f78b8d28d7d13ad010",
+      "x": 6018,
+      "y": 0,
+      "width": 390,
+      "height": 1120
+    },
+    "a24c35b0-c6ce-4fac-bb11-6b6baf44a7f9": {
+      "id": "a24c35b0-c6ce-4fac-bb11-6b6baf44a7f9",
+      "sourceScreen": "projects/15354641314414163585/screens/14985087194838079357",
+      "x": 0,
+      "y": 3057,
+      "width": 512,
+      "height": 1548
+    },
+    "a3ac52c7-622f-495d-9398-31a3d06070ab": {
+      "id": "a3ac52c7-622f-495d-9398-31a3d06070ab",
+      "sourceScreen": "projects/15354641314414163585/screens/5196378879952020607",
+      "x": 3896,
+      "y": 3057,
+      "width": 600,
+      "height": 900
+    },
+    "a3ceefda76bd4aaabf98353d774874e1": {
+      "id": "a3ceefda76bd4aaabf98353d774874e1",
+      "sourceScreen": "projects/15354641314414163585/screens/a3ceefda76bd4aaabf98353d774874e1",
+      "x": 4202,
+      "y": 0,
+      "width": 390,
+      "height": 884
+    },
+    "af7106244807447e9856966c28209dea": {
+      "id": "af7106244807447e9856966c28209dea",
+      "sourceScreen": "projects/15354641314414163585/screens/af7106244807447e9856966c28209dea",
+      "x": 1932,
+      "y": 0,
+      "width": 390,
+      "height": 884
+    },
+    "bbffdbcf-e060-4a8c-8dc5-602a146b7831": {
+      "id": "bbffdbcf-e060-4a8c-8dc5-602a146b7831",
+      "sourceScreen": "projects/15354641314414163585/screens/5196378879952022919",
+      "x": 1240,
+      "y": 3057,
+      "width": 600,
+      "height": 900
+    },
+    "cc167b97c5f04067af6d6561b34cc0c3": {
+      "id": "cc167b97c5f04067af6d6561b34cc0c3",
+      "sourceScreen": "projects/15354641314414163585/screens/cc167b97c5f04067af6d6561b34cc0c3",
+      "x": 0,
+      "y": 1917,
+      "width": 390,
+      "height": 884
+    },
+    "d24d65caa02943d99e3fe1de26a19ca6": {
+      "id": "d24d65caa02943d99e3fe1de26a19ca6",
+      "sourceScreen": "projects/15354641314414163585/screens/d24d65caa02943d99e3fe1de26a19ca6",
+      "x": 3294,
+      "y": 0,
+      "width": 390,
+      "height": 1116
+    },
+    "eb344299734841379227b26c6e30bdab": {
+      "id": "eb344299734841379227b26c6e30bdab",
+      "sourceScreen": "projects/15354641314414163585/screens/eb344299734841379227b26c6e30bdab",
+      "x": 4656,
+      "y": 0,
+      "width": 390,
+      "height": 903
+    }
+  }
+}
