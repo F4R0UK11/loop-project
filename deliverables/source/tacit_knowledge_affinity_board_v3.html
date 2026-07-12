@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tacit Knowledge at AUI — Affinity Diagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #d4a574;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(180,130,80,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(200,155,100,0.3) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    min-height: 100vh;
+    padding: 28px 32px 48px;
+    color: #2c1810;
+  }
+
+  /* ── Header ── */
+  .board-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .board-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a0e08;
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+  }
+  .board-sub {
+    font-size: 13px;
+    color: #5a3d2a;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .board-sub2 {
+    font-size: 11.5px;
+    color: #7a5c44;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 16px;
+    margin-bottom: 28px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #3d2816;
+    background: rgba(255,255,255,0.55);
+    padding: 4px 10px 4px 6px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+  }
+  .legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  .legend-tag {
+    font-weight: 700;
+    font-size: 10px;
+    opacity: 0.7;
+    margin-left: 2px;
+  }
+  .legend-group-label {
+    font-size: 10px;
+    color: #7a5c44;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  /* ── Source colors ── */
+  :root {
+    --om: #FFD180;  /* warm amber */
+    --me: #A5D6A7;  /* soft green */
+    --ha: #CE93D8;  /* lavender purple */
+    --ma: #B0BEC5;  /* cool grey-blue */
+    --hz: #F48FB1;  /* rose pink */
+    --mt: #80CBC4;  /* teal */
+    --mb: #9FA8DA;  /* indigo */
+    --ya: #FFE082;  /* golden yellow */
+  }
+
+  /* ── Board grid ── */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ── Cluster frames ── */
+  .cluster {
+    background: rgba(255,255,255,0.3);
+    border: 2px dashed rgba(120,80,40,0.35);
+    border-radius: 14px;
+    padding: 14px 14px 16px;
+    position: relative;
+    backdrop-filter: blur(2px);
+    transition: transform 0.2s ease;
+  }
+  .cluster:hover {
+    transform: scale(1.01);
+  }
+  .cluster.wide {
+    grid-column: span 2;
+  }
+  .cluster.special {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(120,80,40,0.2);
+    border-style: dotted;
+  }
+
+  .cluster-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a0e08;
+    line-height: 1.35;
+    margin-bottom: 2px;
+    padding-left: 2px;
+  }
+  .cluster-count {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #7a5c44;
+    margin-bottom: 10px;
+    padding-left: 2px;
+  }
+
+  /* ── Notes container ── */
+  .notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  /* ── Individual sticky note ── */
+  .note {
+    width: 110px;
+    min-height: 100px;
+    padding: 24px 9px 10px 9px;
+    font-family: 'Caveat', cursive;
+    font-size: 14.5px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #1a1a1a;
+    position: relative;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow:
+      2px 3px 7px rgba(0,0,0,0.18),
+      0 1px 2px rgba(0,0,0,0.1),
+      inset 0 -2px 4px rgba(0,0,0,0.04);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: default;
+  }
+  .note:hover {
+    transform: scale(1.06) rotate(0deg) !important;
+    box-shadow: 4px 6px 14px rgba(0,0,0,0.22), 0 2px 4px rgba(0,0,0,0.12);
+    z-index: 10;
+  }
+
+  /* Tape strip across top */
+  .note::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 12px;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(200,180,150,0.3);
+    border-radius: 1px;
+    z-index: 2;
+  }
+
+  /* Folded corner */
+  .note::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.06) 50%);
+    border-radius: 0 0 2px 0;
+  }
+
+  /* Slight random rotations — repeating pattern */
+  .note:nth-child(5n+1) { transform: rotate(-2.2deg); }
+  .note:nth-child(5n+2) { transform: rotate(1.8deg); }
+  .note:nth-child(5n+3) { transform: rotate(-0.8deg); }
+  .note:nth-child(5n+4) { transform: rotate(2.5deg); }
+  .note:nth-child(5n+5) { transform: rotate(-1.5deg); }
+
+  /* Source-specific colors */
+  .note-om { background: linear-gradient(175deg, var(--om) 0%, #f5c36c 100%); }
+  .note-me { background: linear-gradient(175deg, var(--me) 0%, #81c784 100%); }
+  .note-ha { background: linear-gradient(175deg, var(--ha) 0%, #ba68c8 100%); }
+  .note-ma { background: linear-gradient(175deg, var(--ma) 0%, #90a4ae 100%); }
+  .note-hz { background: linear-gradient(175deg, var(--hz) 0%, #ec407a 100%); }
+  .note-mt { background: linear-gradient(175deg, var(--mt) 0%, #4db6ac 100%); }
+  .note-mb { background: linear-gradient(175deg, var(--mb) 0%, #7986cb 100%); }
+  .note-ya { background: linear-gradient(175deg, var(--ya) 0%, #ffca28 100%); }
+
+  /* Tag badge */
+  .tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.12);
+    color: rgba(0,0,0,0.65);
+    z-index: 3;
+  }
+
+  /* ── Method note ── */
+  .method-note {
+    text-align: center;
+    font-size: 11px;
+    color: #7a5c44;
+    margin-top: 24px;
+    font-style: italic;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .method-note strong {
+    font-style: normal;
+    color: #5a3d2a;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .board { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    .cluster.wide { grid-column: span 1; }
+    body { padding: 16px; }
+  }
+  @media (max-width: 600px) {
+    .board { grid-template-columns: 1fr; gap: 14px; }
+    .note { width: 100px; min-height: 90px; font-size: 13.5px; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    @page { margin: 0; }
+    body { background: white; padding: 12px; }
+    .board { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cluster { break-inside: avoid; page-break-inside: avoid; flex: 0 0 auto; max-width: 340px; }
+    .cluster.wide { max-width: 680px; }
+    .note { box-shadow: 1px 1px 3px rgba(0,0,0,0.15); }
+    .note:hover { transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<div class="board-header">
+  <div class="board-title">Tacit Knowledge at AUI</div>
+  <div class="board-sub">Affinity diagram · 94 notes from 8 interviews</div>
+</div>
+
+<!-- ── Legend ── -->
+<div class="legend">
+  <div class="legend-group-label">Interviewees</div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:var(--om)"></div>
+    Omar Bensaid <span class="legend-tag">OM</span> — transfer, CS
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:var(--me)"></div>
+    Mehdi Ouahbi <span class="legend-tag">ME</span> — Business
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:var(--ha)"></div>
+    Haytam Idrissi <span class="legend-tag">HA</span> — senior, Robotics Club pres.
+  </div>
+  <div class="legend-group-label" style="margin-top:6px">Collected by Haytam (teammate)</div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:var(--ma)"></div>
+    Interviewee A <span class="legend-tag">MA</span> — anonymous, short answers
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:var(--hz)"></div>
+    Interviewee B <span class="legend-tag">HZ</span> — anonymous, junior SSE mentor
+  </div>
+  <div class="legend-group-label" style="margin-top:6px">Collected by Anass (teammate)</div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:var(--mt)"></div>
+    Mehdi Ben Touhami <span class="legend-tag">MT</span> — Business, 3rd yr
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:var(--mb)"></div>
+    Mohammed Bouhlal <span class="legend-tag">MB</span> — CS, 3rd yr
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background:var(--ya)"></div>
+    Youssef Aitch <span class="legend-tag">YA</span> — CS, 2nd yr
+  </div>
+  <div class="legend-group-label" style="margin-top:10px">Team: Farouk (OM/ME/HA sets below), Manal, Haytam, Anass — 4 members</div>
+</div>
+
+<!-- ── Board ── -->
+<div class="board">
+
+  <!-- ─── Cluster 2: What's written down isn't what happens (11) ─── -->
+  <div class="cluster wide">
+    <div class="cluster-label">What's written down isn't what actually happens</div>
+    <div class="cluster-count">12 notes</div>
+    <div class="notes">
+      <div class="note note-om"><span class="tag">OM4</span>Two weeks to learn two grading systems exist</div>
+      <div class="note note-om"><span class="tag">OM9</span>Missed assignment — undocumented second platform</div>
+      <div class="note note-om"><span class="tag">OM10</span>Assumed Moodle was the single source of truth</div>
+      <div class="note note-me"><span class="tag">ME1</span>Visa steps documented but real steps differ</div>
+      <div class="note note-me"><span class="tag">ME2</span>Brought listed items, turned away anyway</div>
+      <div class="note note-me"><span class="tag">ME5</span>Counter asks for something different than posted</div>
+      <div class="note note-me"><span class="tag">ME7</span>University posts the rules but doesn't check what offices actually do</div>
+      <div class="note note-me"><span class="tag">ME8</span>Gap between policy and practice — nobody's job to fix it</div>
+      <div class="note note-me"><span class="tag">ME10</span>He sees it as a system problem, not his own mistake</div>
+      <div class="note note-ha"><span class="tag">HA1</span>No internal guide existed for club funding</div>
+      <div class="note note-ha"><span class="tag">HA2</span>Revised funding request 3 times to pass</div>
+      <div class="note note-mt"><span class="tag">MT8</span>Fined $200/week for dorm storage — nobody explained the rule</div>
+    </div>
+  </div>
+
+  <!-- ─── Cluster 1: Peers beat official channels (10) ─── -->
+  <div class="cluster wide">
+    <div class="cluster-label">Peers beat official channels, every time</div>
+    <div class="cluster-count">19 notes</div>
+    <div class="notes">
+      <div class="note note-om"><span class="tag">OM6</span>Searched website first, out of habit</div>
+      <div class="note note-om"><span class="tag">OM7</span>AUI website had nothing useful for his specific question</div>
+      <div class="note note-om"><span class="tag">OM8</span>Lurked in WhatsApp group waiting for an answer</div>
+      <div class="note note-me"><span class="tag">ME3</span>A senior student walked him through the real process</div>
+      <div class="note note-ha"><span class="tag">HA3</span>Senior from unrelated club shared the format</div>
+      <div class="note note-hz"><span class="tag">HZ8</span>Trusts Facebook groups — many share same problems</div>
+      <div class="note note-hz"><span class="tag">HZ9</span>Hearing from many people feels more reliable than one person's advice</div>
+      <div class="note note-hz"><span class="tag">HZ10</span>Exchange Facebook group is where students find rental and housing leads</div>
+      <div class="note note-ma"><span class="tag">MA2</span>Friend showed him the printer directly</div>
+      <div class="note note-ma"><span class="tag">MA5</span>Peer explained exchange/study-abroad options</div>
+      <div class="note note-mt"><span class="tag">MT6</span>Assigned Mentor is his first stop for any question</div>
+      <div class="note note-mt"><span class="tag">MT7</span>Trusts Mentor, Facebook, seniors — they're "further along"</div>
+      <div class="note note-mb"><span class="tag">MB2</span>Asked Sidra, a student who'd already been on exchange</div>
+      <div class="note note-mb"><span class="tag">MB3</span>Sidra showed him the real documents and steps needed</div>
+      <div class="note note-mb"><span class="tag">MB4</span>No formal tool — goes straight to Facebook or a known contact</div>
+      <div class="note note-mb"><span class="tag">MB5</span>Trusted Sidra because she'd lived the exact process herself</div>
+      <div class="note note-mb"><span class="tag">MB7</span>Researched it himself before advisors ever mentioned it</div>
+      <div class="note note-ya"><span class="tag">YA6</span>Trusts upperclassmen most — "they have the info 100% correct"</div>
+      <div class="note note-ya"><span class="tag">YA7</span>Admin offices often don't give a complete or accurate answer</div>
+    </div>
+  </div>
+
+  <!-- ─── Cluster 5: Knowledge lives in one head (10) ─── -->
+  <div class="cluster wide">
+    <div class="cluster-label">Knowledge lives in one head, leaves with it</div>
+    <div class="cluster-count">12 notes</div>
+    <div class="notes">
+      <div class="note note-om"><span class="tag">OM11</span>Course-specific debug tricks only exist in a few students' heads</div>
+      <div class="note note-om"><span class="tag">OM12</span>That knowledge disappears when they graduate — IT support doesn't cover it</div>
+      <div class="note note-me"><span class="tag">ME4</span>Learned to arrive early, bring extra copies</div>
+      <div class="note note-me"><span class="tag">ME6</span>Has since repeated the same walkthrough for two other students</div>
+      <div class="note note-ha"><span class="tag">HA6</span>Started a Google Doc to write down the funding process, but it's incomplete</div>
+      <div class="note note-ha"><span class="tag">HA7</span>The doc is in his personal Drive — his successor probably won't find it</div>
+      <div class="note note-ha"><span class="tag">HA8</span>Privately knows which advisors actually help</div>
+      <div class="note note-ha"><span class="tag">HA9</span>Which advisors are good — that info leaves when he graduates</div>
+      <div class="note note-ha"><span class="tag">HA10</span>"Institutional knowledge lives in people, not in any system"</div>
+      <div class="note note-ha"><span class="tag">HA11</span>Even his attempt to write things down failed — no official place to put it</div>
+      <div class="note note-mb"><span class="tag">MB12</span>Trailed off on "what disappears" — then agreed: admin know-how</div>
+      <div class="note note-ya"><span class="tag">YA9</span>Uses Outlook + Canvas syllabus as his own go-to when answering others</div>
+    </div>
+  </div>
+
+  <!-- ─── Cluster 3: Expected to already know (5) ─── -->
+  <div class="cluster">
+    <div class="cluster-label">Expected to already know, so stayed quiet</div>
+    <div class="cluster-count">5 notes</div>
+    <div class="notes">
+      <div class="note note-om"><span class="tag">OM1</span>Not "new-new" but knows nothing about AUI</div>
+      <div class="note note-om"><span class="tag">OM2</span>Others assume he already knows things</div>
+      <div class="note note-om"><span class="tag">OM3</span>Didn't ask — might "sound obvious"</div>
+      <div class="note note-om"><span class="tag">OM5</span>Transfers get 30 min on credits but no walkthrough of daily campus life</div>
+      <div class="note note-me"><span class="tag">ME9</span>Advises: find another student who's been through it before going to any office alone</div>
+    </div>
+  </div>
+
+  <!-- ─── Cluster 6: Nobody teaches you the campus (4) ─── -->
+  <div class="cluster">
+    <div class="cluster-label">Nobody teaches you the physical campus</div>
+    <div class="cluster-count">7 notes</div>
+    <div class="notes">
+      <div class="note note-hz"><span class="tag">HZ1</span>Campus very confusing — no map provided</div>
+      <div class="note note-hz"><span class="tag">HZ2</span>Trouble identifying buildings</div>
+      <div class="note note-hz"><span class="tag">HZ3</span>Would get food off campus, then get lost finding the way back to dorm</div>
+      <div class="note note-hz"><span class="tag">HZ4</span>Finding classrooms and buildings is still the hardest thing to figure out</div>
+      <div class="note note-mb"><span class="tag">MB1</span>First struggle was just finding a building — no official process</div>
+      <div class="note note-ya"><span class="tag">YA1</span>Couldn't figure out where his classes were physically located</div>
+      <div class="note note-ya"><span class="tag">YA2</span>Solved it by asking staff at the "Open Doors" help desk</div>
+    </div>
+  </div>
+
+  <!-- ─── Cluster 7: Rumors travel fast (4) ─── -->
+  <div class="cluster">
+    <div class="cluster-label">Rumors travel fast, trust has to be earned</div>
+    <div class="cluster-count">5 notes</div>
+    <div class="notes">
+      <div class="note note-hz"><span class="tag">HZ11</span>Believed a rumor that scholarships get revoked for failing — turned out false</div>
+      <div class="note note-hz"><span class="tag">HZ12</span>Learned from that: "you can't always trust what other students say"</div>
+      <div class="note note-hz"><span class="tag">HZ14</span>Now advises new students: always verify info, don't just trust rumors</div>
+      <div class="note note-hz"><span class="tag">HZ17</span>Trusts peers for how-to questions (printing, paying) but not for opinions</div>
+      <div class="note note-ya"><span class="tag">YA8</span>Add/Drop Facebook group exists but "isn't 100% trustworthy"</div>
+    </div>
+  </div>
+
+  <!-- ─── Cluster 8: AI and anonymous crowds (4) ─── -->
+  <div class="cluster">
+    <div class="cluster-label">AI and anonymous crowds before people</div>
+    <div class="cluster-count">4 notes</div>
+    <div class="notes">
+      <div class="note note-ma"><span class="tag">MA3</span>Goes to AI before asking any person or reading any document</div>
+      <div class="note note-hz"><span class="tag">HZ5</span>Uses AI first for anything technical</div>
+      <div class="note note-hz"><span class="tag">HZ6</span>Goes to Quora, Reddit, Substack when he wants opinions or experiences</div>
+      <div class="note note-hz"><span class="tag">HZ7</span>Only asks a real person if AI and online sources aren't enough</div>
+    </div>
+  </div>
+
+  <!-- ─── Cluster 4: Same questions, same few people (3) ─── -->
+  <div class="cluster">
+    <div class="cluster-label">The same questions, the same few people</div>
+    <div class="cluster-count">6 notes</div>
+    <div class="notes">
+      <div class="note note-ha"><span class="tag">HA4</span>New officers ask same funding question yearly</div>
+      <div class="note note-ha"><span class="tag">HA5</span>Explained the format 8 or 9 times</div>
+      <div class="note note-hz"><span class="tag">HZ13</span>Hears the same questions from new students over and over</div>
+      <div class="note note-mt"><span class="tag">MT10</span>Constantly asked "is studying at AUI hard or not?"</div>
+      <div class="note note-mb"><span class="tag">MB8</span>Now that people know he's done exchange, they all ask him how it works</div>
+      <div class="note note-ya"><span class="tag">YA13</span>Constantly asked about the attendance policy — how many absences are OK</div>
+    </div>
+  </div>
+
+  <!-- ─── NEW Cluster: One failed test, no do-over (Anass) ─── -->
+  <div class="cluster">
+    <div class="cluster-label">One failed test, no do-over</div>
+    <div class="cluster-count">3 notes · new from Anass's interviews</div>
+    <div class="notes">
+      <div class="note note-mt"><span class="tag">MT1</span>Failed a mandatory placement test given before he even arrived</div>
+      <div class="note note-mt"><span class="tag">MT2</span>Wasn't allowed a retake after failing it once</div>
+      <div class="note note-mt"><span class="tag">MT3</span>Failed the retake too — says it shaped his path afterward</div>
+    </div>
+  </div>
+
+  <!-- ─── NEW Cluster: Registration and Add/Drop confuse everyone (Anass) ─── -->
+  <div class="cluster">
+    <div class="cluster-label">Registration and Add/Drop confuse everyone</div>
+    <div class="cluster-count">4 notes · new from Anass's interviews</div>
+    <div class="notes">
+      <div class="note note-mt"><span class="tag">MT5</span>Didn't know where to find Add/Drop or next-semester registration</div>
+      <div class="note note-mb"><span class="tag">MB6</span>Didn't know "undrop" needs advisor confirmation — it messed everything up</div>
+      <div class="note note-ya"><span class="tag">YA4</span>Struggles to pick a class time that also matches the right professor</div>
+      <div class="note note-ya"><span class="tag">YA5</span>Mentor's advice: "choose the professor, don't choose the time"</div>
+    </div>
+  </div>
+
+  <!-- ─── NEW Cluster: Rules you only learn by breaking them (Anass) ─── -->
+  <div class="cluster">
+    <div class="cluster-label">Rules you only learn by breaking them</div>
+    <div class="cluster-count">4 notes · new from Anass's interviews</div>
+    <div class="notes">
+      <div class="note note-mt"><span class="tag">MT9</span>Learned "don't fight with anyone" after a fight with his roommate</div>
+      <div class="note note-ya"><span class="tag">YA10</span>Broke curfew for dinner off campus — only found out the rule after</div>
+      <div class="note note-ya"><span class="tag">YA11</span>Resolved it by explaining himself to the Dean of Student Affairs</div>
+      <div class="note note-ya"><span class="tag">YA12</span>Learned to stay away from fights, even to break one up</div>
+    </div>
+  </div>
+
+  <!-- ─── NEW Cluster: Pick your major and friends early (Anass) ─── -->
+  <div class="cluster wide">
+    <div class="cluster-label">Pick your major and your friends early — advice everyone repeats</div>
+    <div class="cluster-count">6 notes · new from Anass's interviews</div>
+    <div class="notes">
+      <div class="note note-mt"><span class="tag">MT11</span>Advice: know your strengths clearly before choosing a major</div>
+      <div class="note note-mt"><span class="tag">MT12</span>Advice: choose friends carefully — they push you forward or hold you back</div>
+      <div class="note note-mb"><span class="tag">MB9</span>Advice: register/declare your major right away, don't stay confused</div>
+      <div class="note note-mb"><span class="tag">MB10</span>Advice: know how to pick your core courses early</div>
+      <div class="note note-mb"><span class="tag">MB11</span>Advice: choose your friends well</div>
+      <div class="note note-ya"><span class="tag">YA14</span>Advice: pick your major early — switching later "resets you to zero"</div>
+    </div>
+  </div>
+
+  <!-- ─── Parking lot ─── -->
+  <div class="cluster special">
+    <div class="cluster-label">🅿 Parking lot</div>
+    <div class="cluster-count">1 note · solution idea, set aside</div>
+    <div class="notes">
+      <div class="note note-hz"><span class="tag">HZ16</span>Wishes there was a dedicated platform just for AUI students instead of generic social media</div>
+    </div>
+  </div>
+
+  <!-- ─── Outliers ─── -->
+  <div class="cluster special">
+    <div class="cluster-label">⊘ Outliers</div>
+    <div class="cluster-count">6 notes · didn't fit any cluster</div>
+    <div class="notes">
+      <div class="note note-hz"><span class="tag">HZ15</span>Made temporary friends during orientation but lost contact over time</div>
+      <div class="note note-ma"><span class="tag">MA1</span>Couldn't think of a specific story from her first weeks</div>
+      <div class="note note-ma"><span class="tag">MA4</span>Couldn't recall a specific mistake caused by missing information</div>
+      <div class="note note-mt"><span class="tag">MT4</span>Tore a knee ligament during running training — personal, not a knowledge gap</div>
+      <div class="note note-mt"><span class="tag">MT13</span>What he'll remember most is the cafeteria food, not "knowledge"</div>
+      <div class="note note-ya"><span class="tag">YA3</span>Bucks the trend: goes straight to Admin first, not to peers</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

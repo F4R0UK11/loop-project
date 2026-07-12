@@ -25,3 +25,7 @@ and the confirmation retrains the model.
 Forest green `#1D2B22` primary, warm sand `#FFF8EF` background, terracotta `#B5651D` the AI accent,
 blue `#2C5F8A` = official policy, amber `#B5651D` = lived experience. Source Serif 4 headings, Work
 Sans body. Terracotta owns every AI moment.
+| `05_crazy8s_team_solutions.md` | The team's eight Crazy 8s sketches (super-app starred) |
+| `06_affinity_board.md` | Tacit-knowledge affinity board (clustered interview insights) |
+
+Raw originals (docx/pdf/html) are mirrored under `deliverables/source/`.
