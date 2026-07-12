@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><title>Loop — Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{
+"surface-container":"#f5eddc","surface-variant":"#eae2d1","surface-container-high":"#efe7d6",
+"on-secondary":"#ffffff","on-surface-variant":"#514a3e","surface-container-lowest":"#ffffff",
+"on-secondary-container":"#33493c","surface-container-low":"#fbf3e2","on-primary":"#ffffff",
+"on-background":"#1f1b11","surface":"#fff8ef","secondary-container":"#cfe9d7","outline-variant":"#c9c3b4",
+"secondary":"#3f6b4f","on-surface":"#1f1b11","outline":"#8a8271","primary":"#1d2b22",
+"background":"#fff8ef","primary-container":"#1d2b22","on-tertiary":"#ffffff",
+"terracotta":"#B5651D","terracotta-soft":"#F3E4D3","policy":"#2C5F8A","policy-soft":"#DCE9F3",
+"experience":"#B5651D","experience-soft":"#F3E4D3","soft-cream":"#FBF8F2"},
+borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem","2xl":"1rem",full:"9999px"},
+spacing:{base:"4px",md:"16px",sm:"12px",xl:"32px",xs:"8px",lg:"24px","margin-mobile":"20px"},
+fontFamily:{"label-md":["Work Sans"],"body-lg":["Work Sans"],"label-sm":["Work Sans"],
+"headline-lg":['"Source Serif 4"'],"headline-sm":['"Source Serif 4"'],"headline-md":['"Source Serif 4"'],"body-md":["Work Sans"]},
+fontSize:{"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"500"}],
+"body-lg":["17px",{lineHeight:"26px",fontWeight:"400"}],
+"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],
+"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],
+"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],
+"headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
+"body-md":["15px",{lineHeight:"22px",fontWeight:"400"}]}}}}
+</script>
+<style>
+.shadow-diffuse{box-shadow:0 4px 16px rgba(29,43,34,0.06)}
+.shadow-card{box-shadow:0 6px 20px rgba(29,43,34,0.08)}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400}
+.fill{font-variation-settings:'FILL' 1}
+.navbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;border-radius:12px;color:#514a3e;transition:.15s}
+.navbtn.active{background:#cfe9d7;color:#33493c;border-radius:9999px;padding:6px 16px}
+.navlbl{font-family:'Work Sans';font-size:11px;font-weight:600;letter-spacing:.05em;margin-top:2px}
+@keyframes fillbar{from{width:0}to{width:var(--w)}}
+.confbar{animation:fillbar 1.1s cubic-bezier(.4,0,.2,1) forwards}
+</style></head>
+<body class="bg-background text-on-background antialiased pt-16 pb-24 min-h-screen max-w-lg mx-auto relative">
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface/85 backdrop-blur-md max-w-lg mx-auto left-0 right-0">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-on-surface-variant">menu</span><span class="font-headline-md text-[20px] font-bold text-primary tracking-tight">Loop</span></div>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">settings</span></button>
+</header>
+
+<main class="px-margin-mobile flex flex-col gap-lg mt-lg">
+
+<!-- Identity -->
+<section class="flex items-center gap-md">
+<div class="w-16 h-16 rounded-full bg-secondary/25 border-2 border-surface flex items-center justify-center font-headline-md text-secondary">A</div>
+<div class="flex flex-col gap-0.5">
+<h1 class="font-headline-md text-headline-md text-primary leading-tight">Anass R.</h1>
+<span class="font-body-md text-body-md text-on-surface-variant">3rd year · Software Systems Eng.</span>
+<div class="flex items-center gap-1.5 mt-1"><span class="material-symbols-outlined text-[15px] text-secondary fill">workspace_premium</span><span class="font-label-sm text-label-sm text-secondary uppercase">Verified answerer</span></div>
+</div>
+</section>
+
+<!-- Contribution stats -->
+<section class="grid grid-cols-3 gap-sm">
+<div class="bg-surface-container-lowest rounded-2xl py-4 flex flex-col items-center shadow-diffuse border border-outline-variant/20">
+<span class="font-headline-md text-headline-md text-primary">14</span><span class="font-label-sm text-label-sm text-on-surface-variant text-center">Questions asked</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl py-4 flex flex-col items-center shadow-diffuse border border-outline-variant/20">
+<span class="font-headline-md text-headline-md text-secondary">37</span><span class="font-label-sm text-label-sm text-on-surface-variant text-center">Answers verified</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl py-4 flex flex-col items-center shadow-diffuse border border-outline-variant/20">
+<span class="font-headline-md text-headline-md text-terracotta">218</span><span class="font-label-sm text-label-sm text-on-surface-variant text-center">People helped</span>
+</div>
+</section>
+
+<!-- Helper level — rewards, kept light so it never becomes engagement bait.
+     Rationale: Salma persona — "recognized as reliable without being expected to be infallible",
+     "no formal channel credits what she does for free". The reward is credit for preserving
+     knowledge, not points for posting. -->
+<section class="bg-surface-container-lowest rounded-2xl p-lg flex flex-col gap-sm shadow-diffuse border border-outline-variant/20">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px] text-terracotta fill">military_tech</span><span class="font-headline-sm text-headline-sm text-primary">Top Helper</span></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Level 4 · Keeper</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-terracotta rounded-full confbar" style="--w:72%"></div></div>
+<p class="font-label-md text-label-md text-on-surface-variant">8 more verified answers to reach <span class="text-primary font-medium">Keeper of Record</span> — the badge for answers still trusted after you graduate.</p>
+</section>
+
+<!-- Verified answerer toggle — the human-in-control switch.
+     Rationale: Shneiderman HCAI — being a trusted source is opt-in and scoped per topic; the
+     user decides where they will stand behind an answer. -->
+<section class="flex flex-col gap-sm">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Verified answerer for</h2>
+<div class="bg-surface-container-lowest rounded-2xl p-md shadow-diffuse border border-outline-variant/20 flex flex-col gap-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="material-symbols-outlined text-[13px] fill">check</span>Exchange</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="material-symbols-outlined text-[13px] fill">check</span>Registration</span>
+</div>
+<div class="w-11 h-6 rounded-full bg-secondary flex items-center px-0.5 justify-end"><div class="w-5 h-5 rounded-full bg-white shadow"></div></div>
+</div>
+<p class="font-label-sm text-label-sm text-outline">You did both processes and were approved by a topic moderator. Your confirmations show your name and retrain Loop.</p>
+</div>
+</section>
+
+<!-- Your verified answers -->
+<section class="flex flex-col gap-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary">Your verified answers</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">still live</span>
+</div>
+<a href="verified.html" class="bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex flex-col gap-sm hover:scale-[0.99] transition-transform">
+<div class="flex items-start justify-between gap-4"><h3 class="font-body-md text-body-md font-medium text-on-background">Which documents did the exchange office actually check this year?</h3><span class="material-symbols-outlined text-outline-variant">chevron_right</span></div>
+<div class="flex items-center gap-3"><div class="flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full"><span class="material-symbols-outlined text-[14px] fill">verified</span><span class="font-label-sm text-label-sm">Verified</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">helped 96 people</span></div>
+</a>
+<a href="verified.html" class="bg-surface-container-lowest rounded-2xl p-4 shadow-diffuse border border-outline-variant/20 flex flex-col gap-sm hover:scale-[0.99] transition-transform">
+<div class="flex items-start justify-between gap-4"><h3 class="font-body-md text-body-md font-medium text-on-background">Do I need advisor confirmation to un-drop a course?</h3><span class="material-symbols-outlined text-outline-variant">chevron_right</span></div>
+<div class="flex items-center gap-3"><div class="flex items-center gap-1 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full"><span class="material-symbols-outlined text-[14px] fill">verified</span><span class="font-label-sm text-label-sm">Verified</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">helped 122 people</span></div>
+</a>
+</section>
+
+<!-- DURABILITY LINE — the thesis, personal.
+     Rationale: journey map pain #4 (knowledge decay at graduation) + Hamza's Google Doc that
+     nobody could find. Your answers do not leave when you do. -->
+<section class="bg-primary rounded-2xl p-lg flex items-center gap-md shadow-card">
+<span class="material-symbols-outlined text-[28px] text-secondary-container">all_inclusive</span>
+<div class="flex flex-col gap-0.5">
+<p class="font-headline-sm text-[17px] text-on-primary leading-snug" style="font-family:'Source Serif 4'">When you graduate, your answers stay.</p>
+<p class="font-label-md text-label-md text-on-primary/70">37 verified answers will keep helping AUI after you leave.</p>
+</div>
+</section>
+
+</main>
+
+<nav class="fixed bottom-0 left-0 w-full max-w-lg mx-auto z-50 flex justify-around items-center px-2 h-20 bg-surface-container shadow-[0_-4px_16px_rgba(29,43,34,0.06)] rounded-t-2xl">
+<a href="home.html" class="navbtn"><span class="material-symbols-outlined">home</span><span class="navlbl">Ask</span></a>
+<a href="explore.html" class="navbtn "><span class="material-symbols-outlined ">explore</span><span class="navlbl">Explore</span></a>
+<a href="askai.html" class="navbtn "><span class="material-symbols-outlined ">auto_awesome</span><span class="navlbl">Ask AI</span></a>
+<a href="spaces.html" class="navbtn "><span class="material-symbols-outlined ">group_work</span><span class="navlbl">Spaces</span></a>
+<a href="profile.html" class="navbtn active"><span class="material-symbols-outlined fill">person</span><span class="navlbl">Profile</span></a>
+</nav>
+</body></html>

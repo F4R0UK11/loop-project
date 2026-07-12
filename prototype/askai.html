@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><title>Loop — Ask AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={darkMode:"class",theme:{extend:{colors:{
+"surface-container":"#f5eddc","surface-variant":"#eae2d1","surface-container-high":"#efe7d6",
+"on-secondary":"#ffffff","on-surface-variant":"#514a3e","surface-container-lowest":"#ffffff",
+"on-secondary-container":"#33493c","surface-container-low":"#fbf3e2","on-primary":"#ffffff",
+"on-background":"#1f1b11","surface":"#fff8ef","secondary-container":"#cfe9d7","outline-variant":"#c9c3b4",
+"secondary":"#3f6b4f","on-surface":"#1f1b11","outline":"#8a8271","primary":"#1d2b22",
+"background":"#fff8ef","primary-container":"#1d2b22","on-tertiary":"#ffffff",
+"terracotta":"#B5651D","terracotta-soft":"#F3E4D3","policy":"#2C5F8A","policy-soft":"#DCE9F3",
+"experience":"#B5651D","experience-soft":"#F3E4D3","soft-cream":"#FBF8F2"},
+borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem","2xl":"1rem",full:"9999px"},
+spacing:{base:"4px",md:"16px",sm:"12px",xl:"32px",xs:"8px",lg:"24px","margin-mobile":"20px"},
+fontFamily:{"label-md":["Work Sans"],"body-lg":["Work Sans"],"label-sm":["Work Sans"],
+"headline-lg":['"Source Serif 4"'],"headline-sm":['"Source Serif 4"'],"headline-md":['"Source Serif 4"'],"body-md":["Work Sans"]},
+fontSize:{"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.02em",fontWeight:"500"}],
+"body-lg":["17px",{lineHeight:"26px",fontWeight:"400"}],
+"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],
+"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],
+"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],
+"headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],
+"body-md":["15px",{lineHeight:"22px",fontWeight:"400"}]}}}}
+</script>
+<style>
+.shadow-diffuse{box-shadow:0 4px 16px rgba(29,43,34,0.06)}
+.shadow-card{box-shadow:0 6px 20px rgba(29,43,34,0.08)}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400}
+.fill{font-variation-settings:'FILL' 1}
+.navbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;border-radius:12px;color:#514a3e;transition:.15s}
+.navbtn.active{background:#cfe9d7;color:#33493c;border-radius:9999px;padding:6px 16px}
+.navlbl{font-family:'Work Sans';font-size:11px;font-weight:600;letter-spacing:.05em;margin-top:2px}
+@keyframes fillbar{from{width:0}to{width:var(--w)}}
+.confbar{animation:fillbar 1.1s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.dot{animation:blink 1.2s infinite both}.dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
+</style></head>
+<body class="bg-background text-on-background antialiased pt-16 pb-40 min-h-screen max-w-lg mx-auto relative">
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface/85 backdrop-blur-md max-w-lg mx-auto left-0 right-0">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-on-surface-variant">menu</span><span class="font-headline-md text-[20px] font-bold text-primary tracking-tight">Loop</span></div>
+<div class="flex items-center gap-1.5 text-terracotta"><span class="material-symbols-outlined text-[18px] fill">auto_awesome</span><span class="font-label-md text-label-md">Ask AI</span></div>
+</header>
+
+<main class="px-margin-mobile flex flex-col gap-md mt-md">
+
+<!-- SCOPE STATEMENT — the AI declares what it is before anything else.
+     Rationale: PAIR (Mental Models) + Amershi G1/G2 — set the correct mental model up front:
+     Loop answers only from AUI's own corpus and says so. This is the single line that stops
+     users treating it like ChatGPT. Terracotta marks it as an AI moment. -->
+<section class="bg-surface-container-lowest border-[1.5px] border-primary rounded-2xl overflow-hidden shadow-card">
+<div class="flex items-center gap-2 px-md py-sm bg-terracotta-soft border-b border-terracotta/15 text-terracotta">
+<span class="material-symbols-outlined text-[18px] fill">auto_awesome</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Loop AI · grounded in AUI</span>
+</div>
+<div class="p-md">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">I answer using AUI's handbook and real student history. I don't guess about things I haven't seen.</p>
+</div>
+</section>
+
+<!-- Conversation -->
+<div class="flex flex-col gap-md">
+
+<!-- user -->
+<div class="self-end max-w-[80%] bg-primary text-on-primary rounded-2xl rounded-br-md px-md py-sm shadow-diffuse">
+<p class="font-body-md text-body-md">What documents do I actually need for exchange to France?</p>
+</div>
+
+<!-- AI reply, grounded, with confidence + sources.
+     Rationale: Amershi G11 (why) — inline source chips; Nielsen #1 — confidence is visible. -->
+<div class="self-start max-w-[88%] flex flex-col gap-2">
+<div class="bg-surface-container-lowest border-[1.5px] border-primary/70 rounded-2xl rounded-bl-md overflow-hidden shadow-diffuse">
+<div class="flex items-center justify-between px-sm py-1.5 bg-terracotta-soft/70">
+<div class="flex items-center gap-1.5 text-terracotta"><span class="material-symbols-outlined text-[15px] fill">auto_awesome</span><span class="font-label-sm text-label-sm uppercase">Loop AI</span></div>
+<span class="font-label-sm text-label-sm text-secondary">High · 90%</span>
+</div>
+<div class="p-sm flex flex-col gap-2">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">Passport, transcript, the nomination email printed, and proof of housing at the host university. Students who went last term were also asked for extra passport copies in person, which the guide doesn't mention.</p>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-secondary rounded-full confbar" style="--w:90%"></div></div>
+<div class="flex flex-wrap gap-1.5">
+<div class="inline-flex items-center gap-1 pl-1.5 pr-2.5 py-1 rounded-full bg-policy-soft text-policy border border-policy/25"><span class="material-symbols-outlined text-[13px]">menu_book</span><span class="font-label-sm text-label-sm">Exchange guide · 2025</span></div>
+<div class="inline-flex items-center gap-1 pl-1.5 pr-2.5 py-1 rounded-full bg-experience-soft text-experience border border-experience/25"><span class="material-symbols-outlined text-[13px]">groups</span><span class="font-label-sm text-label-sm">Student reports · lived</span></div>
+</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant pl-1">Verified by Sidra M. · confirm in the Exchange Space</span>
+</div>
+
+<!-- retrieving state — system status.
+     Rationale: Nielsen #1 (visibility of system status). Shown as a live variant so the jury
+     sees Loop "retrieving sources" rather than inventing them. -->
+<div class="self-start max-w-[70%] flex flex-col gap-1">
+<div class="bg-surface-container-low border border-outline-variant/40 rounded-2xl rounded-bl-md px-md py-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-terracotta">travel_explore</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Retrieving sources</span>
+<span class="flex gap-0.5"><span class="dot w-1.5 h-1.5 rounded-full bg-terracotta"></span><span class="dot w-1.5 h-1.5 rounded-full bg-terracotta"></span><span class="dot w-1.5 h-1.5 rounded-full bg-terracotta"></span></span>
+</div>
+</div>
+
+<!-- second user turn -->
+<div class="self-end max-w-[80%] bg-primary text-on-primary rounded-2xl rounded-br-md px-md py-sm shadow-diffuse">
+<p class="font-body-md text-body-md">Can I get my scholarship disbursed early while I'm abroad?</p>
+</div>
+
+<!-- LOW-CONFIDENCE / NOT-SEEN case — the wrong-answer safeguard.
+     Rationale: Amershi G2 (how well it can do what it does) + Nielsen #9 (error recovery).
+     Instead of guessing, the AI states it hasn't seen a verified answer and routes to a human.
+     This is the walkthrough answer to "what happens when the model would be wrong." -->
+<div class="self-start max-w-[88%] flex flex-col gap-2">
+<div class="bg-experience-soft/50 border-[1.5px] border-experience/40 rounded-2xl rounded-bl-md overflow-hidden shadow-diffuse">
+<div class="flex items-center gap-1.5 px-sm py-1.5 bg-experience-soft text-experience">
+<span class="material-symbols-outlined text-[15px]">error</span><span class="font-label-sm text-label-sm uppercase">Not verified yet · low confidence</span>
+</div>
+<div class="p-sm flex flex-col gap-2">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">I haven't seen a verified answer for this yet, so I won't guess. A verified member in the International Students Space can answer it properly.</p>
+<a href="space_thread.html" class="self-start inline-flex items-center gap-1.5 bg-terracotta text-white px-4 py-2 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity"><span class="material-symbols-outlined text-[16px]">forum</span>Ask a verified member</a>
+</div>
+</div>
+</div>
+
+</div>
+</main>
+
+<!-- Suggested prompts + input, pinned above nav -->
+<div class="fixed bottom-20 left-0 w-full max-w-lg mx-auto px-margin-mobile pb-2 pt-3 bg-gradient-to-t from-background via-background to-transparent">
+<div class="flex gap-xs overflow-x-auto scrollbar-hide pb-2">
+<span class="whitespace-nowrap px-3 py-1.5 bg-surface-container-high text-primary rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-variant transition-colors">What's the attendance policy?</span>
+<span class="whitespace-nowrap px-3 py-1.5 bg-surface-container-high text-primary rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-variant transition-colors">How does exchange work?</span>
+<span class="whitespace-nowrap px-3 py-1.5 bg-surface-container-high text-primary rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-variant transition-colors">Where is my class?</span>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest rounded-full border border-outline-variant/50 outline-none focus:ring-2 focus:ring-terracotta/40 focus:border-terracotta py-3 pl-4 pr-24 font-body-md text-body-md placeholder:text-outline shadow-card" placeholder="Ask about AUI…"/>
+<div class="absolute right-1.5 top-1/2 -translate-y-1/2 flex items-center gap-1">
+<button class="p-2 rounded-full text-on-surface-variant hover:text-primary transition-colors" aria-label="Voice"><span class="material-symbols-outlined text-[20px]">mic</span></button>
+<button class="w-9 h-9 rounded-full bg-terracotta text-white flex items-center justify-center hover:opacity-90 transition-opacity" aria-label="Send"><span class="material-symbols-outlined text-[18px]">arrow_upward</span></button>
+</div>
+</div>
+</div>
+
+<nav class="fixed bottom-0 left-0 w-full max-w-lg mx-auto z-50 flex justify-around items-center px-2 h-20 bg-surface-container shadow-[0_-4px_16px_rgba(29,43,34,0.06)] rounded-t-2xl">
+<a href="home.html" class="navbtn"><span class="material-symbols-outlined">home</span><span class="navlbl">Ask</span></a>
+<a href="explore.html" class="navbtn "><span class="material-symbols-outlined ">explore</span><span class="navlbl">Explore</span></a>
+<a href="askai.html" class="navbtn active"><span class="material-symbols-outlined fill">auto_awesome</span><span class="navlbl">Ask AI</span></a>
+<a href="spaces.html" class="navbtn "><span class="material-symbols-outlined ">group_work</span><span class="navlbl">Spaces</span></a>
+<a href="profile.html" class="navbtn "><span class="material-symbols-outlined ">person</span><span class="navlbl">Profile</span></a>
+</nav>
+</body></html>
