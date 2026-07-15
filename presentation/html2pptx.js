@@ -900,11 +900,9 @@ async function html2pptx(htmlFile, pres, options = {}) {
   } = options;
 
   try {
-    // Use Chrome on macOS, default Chromium on Unix
-    const launchOptions = { env: { TMPDIR: tmpDir } };
-    if (process.platform === 'darwin') {
-      launchOptions.channel = 'chrome';
-    }
+    // Use Playwright's bundled Chromium everywhere: launching the system Chrome
+    // channel on macOS is flaky when the user's own Chrome is already running.
+    const launchOptions = { env: { TMPDIR: tmpDir }, timeout: 120000 };
 
     const browser = await chromium.launch(launchOptions);
 
