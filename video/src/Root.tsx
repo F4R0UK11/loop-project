@@ -251,6 +251,11 @@ export const LoopPitch: React.FC = () => {
 
 const TOTAL = 240 + 110 + 260 + 120 + 270 + 120 + 270 + 120 + 260 + 300; // 2070 frames = 69s
 
+import {LoopAmbient, LOOP_FRAMES} from './Ambient';
+
 export const RemotionRoot: React.FC = () => (
-  <Composition id="LoopPitch" component={LoopPitch} durationInFrames={TOTAL} fps={30} width={1920} height={1080} />
+  <>
+    <Composition id="LoopPitch" component={LoopPitch} durationInFrames={TOTAL} fps={30} width={1920} height={1080} />
+    <Composition id="LoopAmbient" component={LoopAmbient} durationInFrames={LOOP_FRAMES} fps={30} width={1920} height={1080} />
+  </>
 );
